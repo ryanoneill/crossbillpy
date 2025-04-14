@@ -14,4 +14,7 @@ dev = [
 ]
 
 [tool.ruff.lint]
-select = ["E", "F", "ANN"]
+select = ["E", "F", "ANN", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
