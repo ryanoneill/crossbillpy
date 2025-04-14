@@ -12,3 +12,6 @@ dev = [
     "pytest>=8.3.5",
     "ruff>=0.11.5",
 ]
+
+[tool.ruff.lint]
+select = ["E", "F", "ANN"]
