@@ -1,5 +1,8 @@
 [project]
 name = "crossbill"
+authors = [
+    {name = "Ryan O'Neill", email = "ryanoneill@gmail.com"}
+]
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
