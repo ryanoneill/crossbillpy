@@ -1,6 +1,7 @@
 """Module that includes the `Response` abstract class."""
 
 from abc import abstractmethod
+from typing import TypeVar
 
 
 class Response:
@@ -19,3 +20,6 @@ class Response:
         type should be used.
         """
         pass
+
+ResponseType = TypeVar('ResponseType', bound=Response)
+"""A type variable based on the abstract `Response` class."""
