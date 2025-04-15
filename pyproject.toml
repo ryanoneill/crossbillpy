@@ -4,6 +4,7 @@ authors = [
     {name = "Ryan O'Neill", email = "ryanoneill@gmail.com"}
 ]
 version = "0.1.0"
+license = "MIT"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
