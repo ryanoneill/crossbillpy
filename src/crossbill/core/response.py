@@ -9,7 +9,7 @@ class Response:
 
     A `Service` is an asynchronous function from a `Request` to a `Response`.
     Classes that derive from this abstract implementation of `Response` should
-    act as the output parameter for a `Service`'s `apply` method.
+    act as the output parameter for a `Service`'s `__call__` method.
     """
     @abstractmethod
     def __init__(self) -> None:
