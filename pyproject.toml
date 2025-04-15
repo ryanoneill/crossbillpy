@@ -39,3 +39,7 @@ convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["D"]
+
+[tool.coverage.run]
+branch = true
+omit = ["tests/**"]
