@@ -1,6 +1,7 @@
 """Module that includes the `Request` abstract class."""
 
 from abc import abstractmethod
+from typing import TypeVar
 
 
 class Request:
@@ -19,3 +20,6 @@ class Request:
         type should be used.
         """
         pass
+
+RequestType = TypeVar('RequestType', bound=Request)
+"""A type variable based on the abstract `Request` class."""
