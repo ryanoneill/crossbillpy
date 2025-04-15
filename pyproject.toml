@@ -20,6 +20,9 @@ dev = [
     "ruff>=0.11.5",
 ]
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
 [tool.ruff.lint]
 select = ["E", "F", "ANN", "D"]
 
