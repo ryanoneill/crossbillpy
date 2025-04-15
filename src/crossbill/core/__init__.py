@@ -14,6 +14,7 @@ For example:
 
 from .codec import Codec
 from .filter import Filter
+from .pipeline import Pipeline
 from .request import Request, RequestCodec, RequestType
 from .response import Response, ResponseCodec, ResponseType
 from .service import Service
@@ -21,6 +22,7 @@ from .service import Service
 __all__ = [
     "Codec",
     "Filter",
+    "Pipeline",
     "Request",
     "RequestCodec",
     "RequestType",
