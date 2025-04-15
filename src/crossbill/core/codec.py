@@ -1,4 +1,4 @@
-"""Module that includes the `Codec` abstrac class."""
+"""Module that includes the `Codec` abstract class."""
 
 from abc import abstractmethod
 from typing import Generic, TypeVar
