@@ -2,6 +2,7 @@ import pytest
 
 from strings import StringRequest, EchoService
 
+
 @pytest.mark.anyio
 async def test_echo() -> None:
     service = EchoService()

@@ -14,5 +14,3 @@ class StringResponse(Response):
 class EchoService(Service[StringRequest, StringResponse]):
     async def __call__(self, request: StringRequest) -> StringResponse:
         return StringResponse(request.value)
-
-
