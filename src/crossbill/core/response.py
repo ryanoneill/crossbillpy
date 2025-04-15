@@ -3,6 +3,8 @@
 from abc import abstractmethod
 from typing import TypeVar
 
+from .codec import Codec
+
 
 class Response:
     """A `Response` is the output type of a `Service`.
@@ -25,3 +27,7 @@ class Response:
 
 ResponseType = TypeVar("ResponseType", bound=Response)
 """A type variable based on the abstract `Response` class."""
+
+
+class ResponseCodec(Codec[ResponseType, bytes]):
+    """A `ResponseCodec` transforms a `ResponseType` to and from `bytes`."""
