@@ -37,3 +37,21 @@ class Codec(Generic[InputType, OutputType]):
         implemented by concrete `Codec`s.
         """
         pass
+
+class IdentityCodec(Codec[InputType, InputType]):
+    """An `IdentityCodec` is a `Codec` that performs no transformations.
+
+    An `IdentityCodec` is a `Codec` that has the same `InputType` and
+    `OutputType`, but also doesn't modify its contents. For example, a `Codec`
+    that reverses a string will have `str` as both the `InputType` and
+    `OutputType`, but that would not be an `IdentityCodec` because the data
+    is being reversed and then reversed back again. For an `IdentityCodec`,
+    calling `encode` or `decode` will have no effect on the data provided.
+    """
+    async def encode(self, data: InputType) -> InputType:
+        """Asynchronously return the `InputType` data passed in."""
+        return data
+
+    async def decode(self, data: InputType) -> InputType:
+        """Asynchronously return the `InputType` data passed in."""
+        return data
