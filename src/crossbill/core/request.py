@@ -3,6 +3,8 @@
 from abc import abstractmethod
 from typing import TypeVar
 
+from .codec import Codec
+
 
 class Request:
     """A `Request` is the input type of a `Service`.
@@ -25,3 +27,7 @@ class Request:
 
 RequestType = TypeVar("RequestType", bound=Request)
 """A type variable based on the abstract `Request` class."""
+
+
+class RequestCodec(Codec[RequestType, bytes]):
+    """A `RequestCodec` transforms a `RequestType` to and from `bytes`."""
