@@ -14,16 +14,18 @@ For example:
 
 from .codec import Codec
 from .filter import Filter
-from .request import Request, RequestType
-from .response import Response, ResponseType
+from .request import Request, RequestCodec, RequestType
+from .response import Response, ResponseCodec, ResponseType
 from .service import Service
 
 __all__ = [
     "Codec",
     "Filter",
     "Request",
+    "RequestCodec",
     "RequestType",
     "Response",
+    "ResponseCodec",
     "ResponseType",
     "Service",
 ]
