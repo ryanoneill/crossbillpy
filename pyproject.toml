@@ -10,6 +10,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
 
+[project.urls]
+Repository = "https://github.com/ryanoneill/crossbillpy"
+
 [dependency-groups]
 dev = [
     "ipython>=9.1.0",
