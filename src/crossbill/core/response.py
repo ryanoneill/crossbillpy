@@ -11,6 +11,7 @@ class Response:
     Classes that derive from this abstract implementation of `Response` should
     act as the output parameter for a `Service`'s `__call__` method.
     """
+
     @abstractmethod
     def __init__(self) -> None:
         """Initialize a Response.
@@ -21,5 +22,6 @@ class Response:
         """
         pass
 
-ResponseType = TypeVar('ResponseType', bound=Response)
+
+ResponseType = TypeVar("ResponseType", bound=Response)
 """A type variable based on the abstract `Response` class."""

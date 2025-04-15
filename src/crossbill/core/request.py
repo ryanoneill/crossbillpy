@@ -11,6 +11,7 @@ class Request:
     Classes that derive from this abstract implementation of `Request` should
     act as the input parameter to a `Service`'s `__call__` method.
     """
+
     @abstractmethod
     def __init__(self) -> None:
         """Initialize a Request.
@@ -21,5 +22,6 @@ class Request:
         """
         pass
 
-RequestType = TypeVar('RequestType', bound=Request)
+
+RequestType = TypeVar("RequestType", bound=Request)
 """A type variable based on the abstract `Request` class."""

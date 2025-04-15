@@ -6,6 +6,7 @@ from typing import Generic
 from .request import RequestType
 from .response import ResponseType
 
+
 class Service(Generic[RequestType, ResponseType]):
     """A `Service` is an asynchronous function from a `Request` to a `Response`.
 
@@ -15,6 +16,7 @@ class Service(Generic[RequestType, ResponseType]):
     Python to use its `__call__` method. This method within `Service` is abstract
     and it's expected that concrete implementations of `Service` define it.
     """
+
     @abstractmethod
     async def __call__(self, request: RequestType) -> ResponseType:
         """Asynchronous function from `RequestType` to `ResponseType`.
@@ -26,4 +28,3 @@ class Service(Generic[RequestType, ResponseType]):
         Concrete implementations of `Service` should define it.
         """
         pass
-
