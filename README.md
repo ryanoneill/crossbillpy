@@ -33,5 +33,18 @@ To run the existing unit tests, run the following from the command line.
 $ uv run pytest
 ```
 
+#### Coverage
 
+This project uses `coverage` for measuring code coverage. To generate the
+report, run the following from the command line.
 
+```shell
+$ uv run coverage run -m pytest
+```
+
+This will create a `.coverage` file, which can be viewed by running the
+following command.
+
+```shell
+$ uv run coverage report -m
+```
