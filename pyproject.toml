@@ -32,4 +32,4 @@ select = ["E", "F", "ANN", "D"]
 convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["ALL"]
+"tests/**" = ["D"]
