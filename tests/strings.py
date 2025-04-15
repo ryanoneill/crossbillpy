@@ -30,3 +30,8 @@ class StringResponseCodec(ResponseCodec[StringResponse]):
 class EchoService(Service[StringRequest, StringResponse]):
     async def __call__(self, request: StringRequest) -> StringResponse:
         return StringResponse(request.value)
+
+
+class SpamService(Service[StringRequest, StringResponse]):
+    async def __call__(self, request: StringRequest) -> StringResponse:
+        return StringResponse("spam")
