@@ -12,11 +12,13 @@ For example:
 * Codec
 """
 
+from .filter import Filter
 from .request import Request, RequestType
 from .response import Response, ResponseType
 from .service import Service
 
 __all__ = [
+    "Filter",
     "Request",
     "RequestType",
     "Response",
