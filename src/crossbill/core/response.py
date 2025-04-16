@@ -22,7 +22,7 @@ class Response:
         be initialized directly. Instead a concrete `Response` type based on this
         type should be used.
         """
-        pass
+        raise NotImplementedError()
 
 
 ResponseType = TypeVar("ResponseType", bound=Response)

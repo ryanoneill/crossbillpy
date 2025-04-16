@@ -1,6 +1,13 @@
 import pytest
 
+from crossbill.core import Response
 from strings import StringResponse, StringResponseCodec
+
+
+@pytest.mark.anyio
+def test_response_is_not_implemented() -> None:
+    with pytest.raises(NotImplementedError):
+        _ = Response()
 
 
 @pytest.mark.anyio
