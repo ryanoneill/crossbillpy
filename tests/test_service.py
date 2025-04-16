@@ -1,6 +1,14 @@
 import pytest
 
-from strings import StringRequest, EchoService
+from crossbill.core import Service
+from strings import EchoService, StringRequest, StringResponse
+
+
+@pytest.mark.anyio
+async def test_service_base_not_implemented() -> None:
+    service = Service[StringRequest, StringResponse]()
+    with pytest.raises(NotImplementedError):
+        _ = await service(StringRequest("hello"))
 
 
 @pytest.mark.anyio

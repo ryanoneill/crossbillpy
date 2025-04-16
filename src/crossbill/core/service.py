@@ -27,4 +27,4 @@ class Service(Generic[RequestType, ResponseType]):
         object instance as a function. This particular version is abstract.
         Concrete implementations of `Service` should define it.
         """
-        pass
+        raise NotImplementedError()
