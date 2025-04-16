@@ -9,4 +9,8 @@ For example:
 * Bridge
 """
 
-__all__ = []
+from .bridge import Bridge
+
+__all__ = [
+    "Bridge",
+]
