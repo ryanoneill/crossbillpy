@@ -13,6 +13,16 @@ class StringCodec(Codec[str, bytes]):
 
 
 @pytest.mark.anyio
+async def test_codec_base_not_implemented() -> None:
+    codec = Codec[str, str]()
+    with pytest.raises(NotImplementedError):
+        _ = await codec.encode("hello")
+
+    with pytest.raises(NotImplementedError):
+        _ = await codec.decode("hello")
+
+
+@pytest.mark.anyio
 async def test_codec_encode_decode() -> None:
     codec = StringCodec()
     before = "Simplicity is prerequisite for reliability."

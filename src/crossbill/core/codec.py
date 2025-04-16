@@ -29,7 +29,7 @@ class Codec(Generic[InputType, OutputType]):
         This version of the `encode` method is abstract and should be
         implemented by concrete `Codec`s.
         """
-        pass
+        raise NotImplementedError()
 
     @abstractmethod
     async def decode(self, data: OutputType) -> InputType:
@@ -38,7 +38,7 @@ class Codec(Generic[InputType, OutputType]):
         This version of the `decode` method is abstract and should be
         implemented by concrete `Codec`s.
         """
-        pass
+        raise NotImplementedError()
 
 
 class IdentityCodec(Codec[InputType, InputType]):
