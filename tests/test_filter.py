@@ -13,6 +13,7 @@ class ReverseResponseFilter(Filter[StringRequest, StringResponse]):
         response.value = response.value[::-1]
         return response
 
+
 @pytest.mark.anyio
 async def test_filter_base_not_implemented() -> None:
     filter = Filter()
