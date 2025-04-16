@@ -20,6 +20,7 @@ dev = [
     "coverage>=7.8.0",
     "ipython>=9.1.0",
     "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
     "pytest-cov>=6.1.1",
     "ruff>=0.11.5",
     "trio>=0.29.0",
@@ -31,6 +32,7 @@ venv = ".venv"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+asyncio_default_fixture_loop_scope = "session"
 
 [tool.ruff.lint]
 select = ["E", "F", "ANN", "D"]
