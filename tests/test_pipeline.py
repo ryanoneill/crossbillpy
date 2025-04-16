@@ -5,7 +5,7 @@ from crossbill.core import Pipeline
 from strings import EchoService, SpamService, StringRequestCodec, StringResponseCodec
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_pipeline() -> None:
     request_codec = StringRequestCodec()
     response_codec = StringResponseCodec()
@@ -18,7 +18,7 @@ async def test_pipeline() -> None:
     assert result.decode() == "Hello World!"
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_pipeline_spam() -> None:
     request_codec = StringRequestCodec()
     response_codec = StringResponseCodec()

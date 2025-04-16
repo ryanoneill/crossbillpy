@@ -12,7 +12,7 @@ class StringCodec(Codec[str, bytes]):
         return data.decode()
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_codec_base_not_implemented() -> None:
     codec = Codec[str, str]()
     with pytest.raises(NotImplementedError):
@@ -22,7 +22,7 @@ async def test_codec_base_not_implemented() -> None:
         _ = await codec.decode("hello")
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_codec_encode_decode() -> None:
     codec = StringCodec()
     before = "Simplicity is prerequisite for reliability."
@@ -31,7 +31,7 @@ async def test_codec_encode_decode() -> None:
     assert before == after
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_codec_decode_encode() -> None:
     codec = StringCodec()
     before = b"\xf0\x9f\xa4\xa9"  # "🤩"
@@ -40,7 +40,7 @@ async def test_codec_decode_encode() -> None:
     assert before == after
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_identity_codec() -> None:
     codec = IdentityCodec()
     value = "Hello World"

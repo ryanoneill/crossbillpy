@@ -14,7 +14,7 @@ class ReverseResponseFilter(Filter[StringRequest, StringResponse]):
         return response
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_filter_base_not_implemented() -> None:
     filter = Filter()
     request = StringRequest("test")
@@ -23,7 +23,7 @@ async def test_filter_base_not_implemented() -> None:
         _ = await filter(request, service)
 
 
-@pytest.mark.anyio
+@pytest.mark.asyncio
 async def test_reverse_response() -> None:
     filter = ReverseResponseFilter()
 
