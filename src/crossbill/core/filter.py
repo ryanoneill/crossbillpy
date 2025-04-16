@@ -38,4 +38,4 @@ class Filter(Generic[RequestType, ResponseType]):
         implemented by implementers, but this method should generally only be
         called by the library.
         """
-        pass
+        raise NotImplementedError

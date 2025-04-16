@@ -13,6 +13,14 @@ class ReverseResponseFilter(Filter[StringRequest, StringResponse]):
         response.value = response.value[::-1]
         return response
 
+@pytest.mark.anyio
+async def test_filter_base_not_implemented() -> None:
+    filter = Filter()
+    request = StringRequest("test")
+    service = EchoService()
+    with pytest.raises(NotImplementedError):
+        _ = await filter(request, service)
+
 
 @pytest.mark.anyio
 async def test_reverse_response() -> None:
