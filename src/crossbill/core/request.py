@@ -22,7 +22,7 @@ class Request:
         be initialized directly. Instead a concrete `Request` type based on this
         type should be used.
         """
-        pass
+        raise NotImplementedError()
 
 
 RequestType = TypeVar("RequestType", bound=Request)

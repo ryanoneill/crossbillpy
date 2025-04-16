@@ -1,6 +1,13 @@
 import pytest
 
+from crossbill.core import Request
 from strings import StringRequest, StringRequestCodec
+
+
+@pytest.mark.anyio
+def test_request_is_not_implemented() -> None:
+    with pytest.raises(NotImplementedError):
+        _ = Request()
 
 
 @pytest.mark.anyio
