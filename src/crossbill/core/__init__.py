@@ -12,6 +12,7 @@ For example:
 * Codec
 """
 
+from .closable import Closable
 from .codec import Codec
 from .filter import Filter
 from .pipeline import Pipeline
@@ -21,6 +22,7 @@ from .response import Response, ResponseCodec, ResponseType
 from .service import Service
 
 __all__ = [
+    "Closable",
     "Codec",
     "Filter",
     "Pipeline",
