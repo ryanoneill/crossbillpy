@@ -21,11 +21,9 @@ $ uv sync
 ```
 ### Testing
 
-This project uses `pytest` along with `anyio` in order to run asynchronous
+This project uses `pytest` along with `asyncio` in order to run asynchronous
 tests. A predominant number of tests within this library will fit that criteria
-due to the nature of the domain space. See
-[Testing with AnyIO](https://anyio.readthedocs.io/en/stable/testing.html) for
-more information on the interplay between the two.
+due to the nature of the domain space. 
 
 To run the existing unit tests, run the following from the command line.
 
