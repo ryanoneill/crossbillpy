@@ -1,14 +1,14 @@
 """Module that includes the `Filter` abstract class."""
 
 from abc import abstractmethod
-from typing import Generic
 
+from .reqrep import ReqRepType
 from .request import RequestType
 from .response import ResponseType
 from .service import Service
 
 
-class Filter(Generic[RequestType, ResponseType]):
+class Filter(ReqRepType):
     """A `Filter` decorates a `Service` adding additional functionality.
 
     A `Filter` wraps a `Service` and allows for modification of the `Request`

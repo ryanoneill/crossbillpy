@@ -1,13 +1,12 @@
 """Module that includes the `Pipeline` class."""
 
-from typing import Generic
-
+from .reqrep import ReqRepType
 from .request import RequestType, RequestCodec
 from .response import ResponseType, ResponseCodec
 from .service import Service
 
 
-class Pipeline(Generic[RequestType, ResponseType]):
+class Pipeline(ReqRepType):
     """A `Pipeline` asynchronous takes input `bytes` and returns output `bytes`.
 
     A `Pipeline` follows a path of `bytes` -> `Request` -> `Service` ->

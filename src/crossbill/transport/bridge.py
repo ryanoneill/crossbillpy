@@ -1,12 +1,11 @@
 """Module that includes the `Bridge` class."""
 
 from asyncio import StreamReader, StreamWriter
-from typing import Generic
 
-from ..core import Pipeline, RequestType, ResponseType
+from ..core import Pipeline, ReqRepType
 
 
-class Bridge(Generic[RequestType, ResponseType]):
+class Bridge(ReqRepType):
     """A `Bridge` is shuffles `bytes` to and from an underlying transport."""
 
     def __init__(self, pipeline: Pipeline) -> None:
