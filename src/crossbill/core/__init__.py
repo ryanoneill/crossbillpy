@@ -5,17 +5,19 @@ Package: crossbill.core
 Description:
 Crossbill core provides the abstractual core nouns of crossbill.
 For example:
+* Codec
+* Filter
+* Pipeline
 * Request
 * Response
 * Service
-* Filter
-* Codec
 """
 
 from .closable import Closable
 from .codec import Codec
 from .filter import Filter
 from .pipeline import Pipeline
+from .pipeline_factory import PipelineFactory
 from .reqrep import ReqRepType
 from .request import Request, RequestCodec, RequestType
 from .response import Response, ResponseCodec, ResponseType
@@ -26,6 +28,7 @@ __all__ = [
     "Codec",
     "Filter",
     "Pipeline",
+    "PipelineFactory",
     "ReqRepType",
     "Request",
     "RequestCodec",
