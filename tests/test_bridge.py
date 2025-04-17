@@ -7,17 +7,20 @@ from crossbill.transport import Bridge
 from strings import StringPipeline
 
 
-async def run_server(server):
+async def run_server(server: Server) -> None:
     async with server:
         await server.serve_forever()
+
 
 async def create_server(host: str, port: int, bridge: Bridge) -> Server:
     server = await asyncio.start_server(bridge, host, port)
     return server
 
+
 async def close_server(server: Server) -> None:
     server.close()
     await server.wait_closed()
+
 
 async def send_client_oneshot(host: str, port: int, message: bytes) -> bytes:
     reader, writer = await asyncio.open_connection(host, port)
@@ -31,10 +34,11 @@ async def send_client_oneshot(host: str, port: int, message: bytes) -> bytes:
 
     return data
 
+
 @pytest.mark.asyncio
-async def test_bridge():
+async def test_bridge() -> None:
     host = "localhost"
-    port = 10234 # TODO: Use ephemeral port instead
+    port = 10234  # TODO: Use ephemeral port instead
 
     pipeline = StringPipeline()
     bridge = Bridge(pipeline)
