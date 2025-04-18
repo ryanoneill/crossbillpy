@@ -15,6 +15,11 @@ def test_bytes_response() -> None:
     assert response.value == b"12345"
 
 
+def test_string_response() -> None:
+    response = StringResponse("abcdefg")
+    assert response.value == "abcdefg"
+
+
 @pytest.mark.asyncio
 async def test_response_codec() -> None:
     data = b"\xf0\x9f\xa4\xa9"  # "🤩"
