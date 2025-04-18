@@ -1,7 +1,7 @@
 import pytest
 
 from crossbill.core import Request
-from strings import StringRequest, StringRequestCodec
+from crossbill.string import StringRequest, StringRequestCodec
 
 
 def test_request_is_not_implemented() -> None:

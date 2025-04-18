@@ -1,7 +1,9 @@
 import pytest
 
 from crossbill.core import Service
-from strings import EchoService, StringRequest, StringResponse
+from crossbill.string import StringRequest, StringResponse
+
+from strings import EchoService
 
 
 @pytest.mark.asyncio

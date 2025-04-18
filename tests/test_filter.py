@@ -1,8 +1,9 @@
 import pytest
 
 from crossbill.core import Filter, Service
+from crossbill.string import StringRequest, StringResponse
 
-from strings import StringRequest, StringResponse, EchoService
+from strings import EchoService
 
 
 class ReverseResponseFilter(Filter[StringRequest, StringResponse]):
