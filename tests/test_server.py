@@ -7,26 +7,13 @@ from crossbill.string import StringClient, StringRequest, StringServer
 from crossbill.transport import Address
 
 
-async def run_server(address: Address, server: StringServer) -> None:
-    service = ReverseService()
-    await server.serve(address, service)
-
-
-# TODO: Move this into Server itself and make it more robust
-async def wait_for_server(server: StringServer) -> None:
-    while not server.is_running():
-        await asyncio.sleep(0.1)
-
-
 @pytest.mark.asyncio
 async def test_server() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)
 
     server = StringServer()
-
-    _ = asyncio.create_task(run_server(address, server))
-    await wait_for_server(server)
+    await server.serve(address, ReverseService())
 
     message = "Hello World!"
     client = StringClient()

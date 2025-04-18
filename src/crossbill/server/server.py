@@ -27,13 +27,17 @@ class Server(Closable, ReqRepType):
             result = self.server.is_serving()
         return result
 
+    async def _run(self, server: AsyncioServer) -> None:
+        async with server:
+            await server.serve_forever()
+
     async def serve(self, address: Address, service: Service) -> None:
         """Start listening on the given `Address` and pass requests to `Service`."""
         pipline = await self.pipeline_factory(service)
         bridge = Bridge(pipline)
         self.server = await asyncio.start_server(bridge, address.host, address.port)
-        async with self.server:
-            await self.server.serve_forever()
+        _ = asyncio.create_task(self._run(self.server))
+        await self.server.start_serving()
 
     async def close(self) -> None:
         """Close a `Server`. If not running, that's ok."""
