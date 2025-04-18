@@ -1,9 +1,8 @@
 import pytest
+from strings import EchoService, SpamService
 
 from crossbill.core import Pipeline
 from crossbill.string import StringRequestCodec, StringResponseCodec
-
-from strings import EchoService, SpamService
 
 
 @pytest.mark.asyncio

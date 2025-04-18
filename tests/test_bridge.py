@@ -1,10 +1,10 @@
 import asyncio
-import pytest
 from asyncio import Server
 
-from crossbill.transport import Bridge
-
+import pytest
 from strings import StringPipeline
+
+from crossbill.transport import Bridge
 
 
 async def run_server(server: Server) -> None:

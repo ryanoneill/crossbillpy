@@ -1,8 +1,8 @@
 """Module that includes the `Pipeline` class."""
 
 from .reqrep import ReqRepType
-from .request import RequestType, RequestCodec
-from .response import ResponseType, ResponseCodec
+from .request import RequestCodec, RequestType
+from .response import ResponseCodec, ResponseType
 from .service import Service
 
 

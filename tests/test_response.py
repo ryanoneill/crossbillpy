@@ -1,7 +1,7 @@
 import pytest
+from strings import StringResponse, StringResponseCodec
 
 from crossbill.core import Response
-from strings import StringResponse, StringResponseCodec
 
 
 def test_response_is_not_implemented() -> None:

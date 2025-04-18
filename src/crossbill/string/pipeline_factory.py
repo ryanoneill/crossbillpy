@@ -1,6 +1,6 @@
 """Module that includes the `StringPipelineFactory` class."""
 
-from ..core import PipelineFactory, Pipeline, Service
+from ..core import Pipeline, PipelineFactory, Service
 from .request import StringRequest
 from .request_codec import StringRequestCodec
 from .response import StringResponse

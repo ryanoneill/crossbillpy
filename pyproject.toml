@@ -34,6 +34,7 @@ asyncio_default_fixture_loop_scope = "session"
 
 [tool.ruff.lint]
 select = ["E", "F", "ANN", "D"]
+extend-select = ["I"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

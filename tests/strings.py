@@ -1,9 +1,8 @@
 from crossbill.core import Pipeline, Service
-
 from crossbill.string import (
     StringRequest,
-    StringResponse,
     StringRequestCodec,
+    StringResponse,
     StringResponseCodec,
 )
 

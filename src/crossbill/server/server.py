@@ -4,7 +4,7 @@ import asyncio
 from asyncio import Server as AsyncioServer
 from typing import Optional
 
-from ..core import Closable, ReqRepType, Service, PipelineFactory
+from ..core import Closable, PipelineFactory, ReqRepType, Service
 from ..transport import Address, Bridge
 
 

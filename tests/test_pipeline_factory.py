@@ -1,9 +1,8 @@
 import pytest
+from strings import ReverseService
 
 from crossbill.core import PipelineFactory
 from crossbill.string import StringPipelineFactory
-
-from strings import ReverseService
 
 
 @pytest.mark.asyncio
