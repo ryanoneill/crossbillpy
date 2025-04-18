@@ -1,21 +1,11 @@
 from crossbill.core import (
     Pipeline,
     PipelineFactory,
-    RequestCodec,
     ResponseCodec,
     Service,
 )
 
-from crossbill.string import StringRequest
-from crossbill.string import StringResponse
-
-
-class StringRequestCodec(RequestCodec[StringRequest]):
-    async def encode(self, data: StringRequest) -> bytes:
-        return data.value.encode()
-
-    async def decode(self, data: bytes) -> StringRequest:
-        return StringRequest(data.decode())
+from crossbill.string import StringRequest, StringResponse, StringRequestCodec
 
 
 class StringResponseCodec(ResponseCodec[StringResponse]):
