@@ -1,5 +1,4 @@
 import pytest
-
 from strings import EchoService
 
 from crossbill.string import StringServer

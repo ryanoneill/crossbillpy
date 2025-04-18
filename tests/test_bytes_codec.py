@@ -1,4 +1,5 @@
 import pytest
+
 from crossbill.bytes import BytesRequest, BytesRequestCodec
 
 
