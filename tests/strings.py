@@ -8,10 +8,7 @@ from crossbill.core import (
     Service,
 )
 
-
-class StringRequest(Request):
-    def __init__(self, value: str) -> None:
-        self.value = value
+from crossbill.string import StringRequest
 
 
 class StringResponse(Response):
