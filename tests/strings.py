@@ -1,7 +1,6 @@
 from crossbill.core import (
     Pipeline,
     PipelineFactory,
-    Request,
     RequestCodec,
     Response,
     ResponseCodec,
