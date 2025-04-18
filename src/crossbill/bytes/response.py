@@ -1,11 +1,7 @@
 """Module that includes the `BytesResponse` class."""
 
-from ..core import Response
+from ..core import WrappedResponse
 
 
-class BytesResponse(Response):
+class BytesResponse(WrappedResponse):
     """Descendant of `Response` that contains `bytes`."""
-
-    def __init__(self, value: bytes) -> None:
-        """Create a `BytesResponse` based on the provided `bytes`."""
-        self.value = value

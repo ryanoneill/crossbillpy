@@ -26,7 +26,13 @@ from .request import (
     WrappedRequest,
     WrappedRequestType,
 )
-from .response import Response, ResponseCodec, ResponseType
+from .response import (
+    Response,
+    ResponseCodec,
+    ResponseType,
+    WrappedResponse,
+    WrappedResponseType,
+)
 from .service import Service
 
 __all__ = [
@@ -45,4 +51,6 @@ __all__ = [
     "Service",
     "WrappedRequest",
     "WrappedRequestType",
+    "WrappedResponse",
+    "WrappedResponseType",
 ]

@@ -1,7 +1,7 @@
 """Module that includes the `Response` abstract class."""
 
 from abc import abstractmethod
-from typing import TypeVar
+from typing import Generic, TypeVar
 
 from .codec import Codec
 
@@ -31,3 +31,15 @@ ResponseType = TypeVar("ResponseType", bound=Response)
 
 class ResponseCodec(Codec[ResponseType, bytes]):
     """A `ResponseCodec` transforms a `ResponseType` to and from `bytes`."""
+
+
+WrappedResponseType = TypeVar("WrappedResponseType")
+"""A type variable used with the `WrappedResponse` class."""
+
+
+class WrappedResponse(Response, Generic[WrappedResponseType]):
+    """A `WrappedResponse` allows a generic type to conform to `Response`."""
+
+    def __init__(self, value: WrappedResponseType) -> None:
+        """Initialize a `WrappedResponse` based on the given `value`."""
+        self.value = value

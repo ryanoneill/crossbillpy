@@ -1,11 +1,7 @@
 """Module that includes the `StringResponse` class."""
 
-from ..core import Response
+from ..core import WrappedResponse
 
 
-class StringResponse(Response):
+class StringResponse(WrappedResponse):
     """Descendant of `Response` that contains a `str`."""
-
-    def __init__(self, value: str) -> None:
-        """Create a `StringResponse` based on the provided `str`."""
-        self.value = value
