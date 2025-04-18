@@ -9,14 +9,17 @@ For example:
 * BytesRequest
 * BytesRequestCodec
 * BytesResponse
+* BytesResponseCodec
 """
 
 from .request import BytesRequest
 from .request_codec import BytesRequestCodec
 from .response import BytesResponse
+from .response_codec import BytesResponseCodec
 
 __all__ = [
     "BytesRequest",
     "BytesRequestCodec",
     "BytesResponse",
+    "BytesResponseCodec",
 ]
