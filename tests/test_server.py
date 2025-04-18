@@ -3,18 +3,17 @@ import asyncio
 import pytest
 from strings import ReverseService
 
-from crossbill.server import Server
-from crossbill.string import StringPipelineFactory
+from crossbill.string import StringServer
 from crossbill.transport import Address
 
 
-async def run_server(address: Address, server: Server) -> None:
+async def run_server(address: Address, server: StringServer) -> None:
     service = ReverseService()
     await server.serve(address, service)
 
 
 # TODO: Move this into Server itself and make it more robust
-async def wait_for_server(server: Server) -> None:
+async def wait_for_server(server: StringServer) -> None:
     while not server.is_running():
         await asyncio.sleep(0.1)
 
@@ -37,8 +36,7 @@ async def test_server() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)
 
-    pipeline_factory = StringPipelineFactory()
-    server = Server(pipeline_factory)
+    server = StringServer()
 
     _ = asyncio.create_task(run_server(address, server))
     await wait_for_server(server)
@@ -52,8 +50,7 @@ async def test_server() -> None:
 
 @pytest.mark.asyncio
 async def test_close_on_empty() -> None:
-    pipeline_factory = StringPipelineFactory()
-    server = Server(pipeline_factory)
+    server = StringServer()
 
     # Nothing bad should happen here
     await server.close()
