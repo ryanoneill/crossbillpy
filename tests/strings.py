@@ -2,17 +2,12 @@ from crossbill.core import (
     Pipeline,
     PipelineFactory,
     RequestCodec,
-    Response,
     ResponseCodec,
     Service,
 )
 
 from crossbill.string import StringRequest
-
-
-class StringResponse(Response):
-    def __init__(self, value: str) -> None:
-        self.value = value
+from crossbill.string import StringResponse
 
 
 class StringRequestCodec(RequestCodec[StringRequest]):
