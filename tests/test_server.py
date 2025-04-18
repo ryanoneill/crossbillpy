@@ -3,7 +3,7 @@ import asyncio
 import pytest
 from strings import ReverseService
 
-from crossbill.string import StringServer
+from crossbill.string import StringClient, StringRequest, StringServer
 from crossbill.transport import Address
 
 
@@ -18,19 +18,6 @@ async def wait_for_server(server: StringServer) -> None:
         await asyncio.sleep(0.1)
 
 
-async def send_client_oneshot(address: Address, message: bytes) -> bytes:
-    reader, writer = await asyncio.open_connection(address.host, address.port)
-    writer.write(message)
-    await writer.drain()
-
-    data = await reader.read(1024)
-
-    writer.close()
-    await writer.wait_closed()
-
-    return data
-
-
 @pytest.mark.asyncio
 async def test_server() -> None:
     # TODO: Use ephemeral port instead
@@ -41,10 +28,13 @@ async def test_server() -> None:
     _ = asyncio.create_task(run_server(address, server))
     await wait_for_server(server)
 
-    message = b"Hello World!"
-    result = await send_client_oneshot(address, message)
-    assert result.decode() == "!dlroW olleH"
+    message = "Hello World!"
+    client = StringClient()
+    await client.connect(address)
+    response = await client(StringRequest(message))
+    assert response.value == "!dlroW olleH"
 
+    await client.close()
     await server.close()
 
 
