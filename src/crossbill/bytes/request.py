@@ -1,11 +1,7 @@
 """Module that includes the `BytesRequest` class."""
 
-from ..core import Request
+from ..core import WrappedRequest
 
 
-class BytesRequest(Request):
+class BytesRequest(WrappedRequest[bytes]):
     """Descendant of `Request` that contains `bytes`."""
-
-    def __init__(self, value: bytes) -> None:
-        """Create a `BytesRequest` based on the provided `bytes`."""
-        self.value = value

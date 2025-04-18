@@ -1,11 +1,7 @@
 """Module that includes the `StringRequest` class."""
 
-from ..core import Request
+from ..core import WrappedRequest
 
 
-class StringRequest(Request):
+class StringRequest(WrappedRequest[str]):
     """Descendant of `Request` that contains a `str`."""
-
-    def __init__(self, value: str) -> None:
-        """Create a `StringRequest` based on the provided `str`."""
-        self.value = value

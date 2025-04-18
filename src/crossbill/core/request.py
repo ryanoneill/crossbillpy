@@ -1,7 +1,7 @@
 """Module that includes the `Request` abstract class."""
 
 from abc import abstractmethod
-from typing import TypeVar
+from typing import Generic, TypeVar
 
 from .codec import Codec
 
@@ -31,3 +31,15 @@ RequestType = TypeVar("RequestType", bound=Request)
 
 class RequestCodec(Codec[RequestType, bytes]):
     """A `RequestCodec` transforms a `RequestType` to and from `bytes`."""
+
+
+WrappedRequestType = TypeVar("WrappedRequestType")
+"""A type variable used with the `WrappedRequest` class."""
+
+
+class WrappedRequest(Request, Generic[WrappedRequestType]):
+    """A `WrappedRequest` allows a generic type to conform to `Request`."""
+
+    def __init__(self, value: WrappedRequestType) -> None:
+        """Initialize a `WrappedRequest` based on the given `value`."""
+        self.value = value

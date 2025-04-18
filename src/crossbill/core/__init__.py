@@ -19,7 +19,13 @@ from .filter import Filter
 from .pipeline import Pipeline
 from .pipeline_factory import PipelineFactory
 from .reqrep import ReqRepType
-from .request import Request, RequestCodec, RequestType
+from .request import (
+    Request,
+    RequestCodec,
+    RequestType,
+    WrappedRequest,
+    WrappedRequestType,
+)
 from .response import Response, ResponseCodec, ResponseType
 from .service import Service
 
@@ -37,4 +43,6 @@ __all__ = [
     "ResponseCodec",
     "ResponseType",
     "Service",
+    "WrappedRequest",
+    "WrappedRequestType",
 ]
