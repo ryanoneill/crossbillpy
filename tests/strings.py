@@ -1,8 +1,4 @@
-from crossbill.core import (
-    Pipeline,
-    PipelineFactory,
-    Service,
-)
+from crossbill.core import Pipeline, Service
 
 from crossbill.string import (
     StringRequest,
@@ -25,14 +21,6 @@ class ReverseService(Service[StringRequest, StringResponse]):
 class SpamService(Service[StringRequest, StringResponse]):
     async def __call__(self, request: StringRequest) -> StringResponse:
         return StringResponse("spam")
-
-
-class StringPipelineFactory(PipelineFactory):
-    async def __call__(self, service: Service) -> Pipeline:
-        request_codec = StringRequestCodec()
-        response_codec = StringResponseCodec()
-        pipeline = Pipeline(request_codec, response_codec, service)
-        return pipeline
 
 
 class StringPipeline(Pipeline[StringRequest, StringResponse]):

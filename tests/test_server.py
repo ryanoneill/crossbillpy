@@ -2,9 +2,10 @@ import asyncio
 import pytest
 
 from crossbill.server import Server
+from crossbill.string import StringPipelineFactory
 from crossbill.transport import Address
 
-from strings import ReverseService, StringPipelineFactory
+from strings import ReverseService
 
 
 async def run_server(address: Address, server: Server) -> None:
