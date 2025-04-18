@@ -28,5 +28,3 @@ async def test_close_on_empty() -> None:
 
     # Nothing bad should happen here
     await server.close()
-
-

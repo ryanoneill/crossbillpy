@@ -21,5 +21,3 @@ async def test_strings_e2e() -> None:
 
     await client.close()
     await server.close()
-
-
