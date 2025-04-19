@@ -3,7 +3,7 @@ name = "crossbill"
 authors = [
     {name = "Ryan O'Neill", email = "ryanoneill@gmail.com"}
 ]
-version = "0.1.0"
+version = "0.1.1"
 license = "MIT"
 description = "A library for building Finagle-style asynchronous clients and servers"
 readme = "README.md"
