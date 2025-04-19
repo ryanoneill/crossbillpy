@@ -2,7 +2,6 @@
 
 import asyncio
 
-from ..bytes import BytesRequest, BytesResponse
 from ..core import (
     Closable,
     ReqRepType,
