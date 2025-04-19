@@ -15,6 +15,7 @@ For example:
 
 from .closable import Closable
 from .codec import Codec
+from .combined_filter import CombinedFilter
 from .filter import Filter
 from .filtered_service import FilteredService
 from .pipeline import Pipeline
@@ -39,6 +40,7 @@ from .service import Service
 __all__ = [
     "Closable",
     "Codec",
+    "CombinedFilter",
     "Filter",
     "FilteredService",
     "Pipeline",

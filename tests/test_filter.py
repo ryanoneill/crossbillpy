@@ -1,7 +1,7 @@
 import pytest
 from strings import EchoService
 
-from crossbill.core import Filter, FilteredService, Service
+from crossbill.core import CombinedFilter, Filter, FilteredService, Service
 from crossbill.string import StringRequest, StringResponse
 
 
@@ -11,6 +11,15 @@ class ReverseResponseFilter(Filter[StringRequest, StringResponse]):
     ) -> StringResponse:
         response = await service(request)
         response.value = response.value[::-1]
+        return response
+
+
+class UppercaseFilter(Filter[StringRequest, StringResponse]):
+    async def __call__(
+        self, request: StringRequest, service: Service[StringRequest, StringResponse]
+    ) -> StringResponse:
+        response = await service(request)
+        response.value = response.value.upper()
         return response
 
 
@@ -40,3 +49,13 @@ async def test_reverse_response() -> None:
     response = await filtered(request)
     result = response.value
     assert result == "olleh"
+
+
+@pytest.mark.asyncio
+async def test_combined_filter() -> None:
+    combined = CombinedFilter([UppercaseFilter(), ReverseResponseFilter()])
+    request = StringRequest("hello")
+    filtered = FilteredService(combined, EchoService())
+    response = await filtered(request)
+    result = response.value
+    assert result == "OLLEH"
