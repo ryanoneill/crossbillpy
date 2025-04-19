@@ -1,7 +1,7 @@
 import pytest
 from strings import EchoService
 
-from crossbill.core import Filter, Service
+from crossbill.core import Filter, FilteredService, Service
 from crossbill.string import StringRequest, StringResponse
 
 
@@ -36,6 +36,7 @@ async def test_reverse_response() -> None:
 
     # Filtered
     request = StringRequest("hello")
-    response = await filter(request, service)
+    filtered = FilteredService(filter, service)
+    response = await filtered(request)
     result = response.value
     assert result == "olleh"

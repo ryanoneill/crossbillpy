@@ -16,6 +16,7 @@ For example:
 from .closable import Closable
 from .codec import Codec
 from .filter import Filter
+from .filtered_service import FilteredService
 from .pipeline import Pipeline
 from .pipeline_factory import PipelineFactory
 from .reqrep import ReqRepType
@@ -39,6 +40,7 @@ __all__ = [
     "Closable",
     "Codec",
     "Filter",
+    "FilteredService",
     "Pipeline",
     "PipelineFactory",
     "ReqRepType",
