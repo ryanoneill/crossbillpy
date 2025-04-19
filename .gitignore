@@ -11,3 +11,6 @@ wheels/
 
 # Code coverage report
 .coverage
+
+# Local publish token storage
+.token
