@@ -34,19 +34,19 @@ class Client(Closable, ReqRepType):
 
     # TODO: Add abstraction here
     # TODO: Handle errors here
-    async def _transport(self, request: BytesRequest) -> BytesResponse:
+    async def _transport(self, data: bytes) -> bytes:
         result = b""
         if self.reader and self.writer:
-            self.writer.write(request.value)
+            self.writer.write(data)
             await self.writer.drain()
             result = await self.reader.read(1024)
-        return BytesResponse(result)
+        return result
 
     async def __call__(self, request: RequestType) -> ResponseType:
         """Asynchronously sends a `Request` and receives a `Response`."""
         request_bytes = await self.request_codec.encode(request)
-        response_bytes = await self._transport(BytesRequest(request_bytes))
-        response = await self.response_codec.decode(response_bytes.value)
+        response_bytes = await self._transport(request_bytes)
+        response = await self.response_codec.decode(response_bytes)
 
         return response
 
