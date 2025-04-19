@@ -2,9 +2,78 @@
 
 ## Description
 
-TODO
+Crossbill is a Python library focused on building Finagle-style `Service`-based
+asynchronous clients and servers. It is very much a work in progress, and as
+such, does not follow semantic versioning, nor should the APIs be considered
+stable.
 
 ## Getting Started
+
+No version of Crossbill has been published to PyPI as of yet, so it needs to be
+included as a dependency via `git`. Here's a walkthrough of doing so using `uv`.
+
+### Create a New Project
+
+```shell
+$ uv init crossbill-demo
+$ cd crossbill-demo
+```
+
+### Add Crossbill as a Dependency
+
+```shell
+$ uv add git+https://github.com/ryanoneill/crossbillpy
+```
+
+### Code the Example
+
+By default, `uv` will generate a `hello.py` file. Replace its contents with the
+following code:
+
+```python
+import asyncio
+from crossbill.core import Service
+from crossbill.string import (
+    StringClient,
+    StringRequest,
+    StringResponse,
+    StringServer,
+)
+from crossbill.transport import Address
+
+
+class EchoService(Service[StringRequest, StringResponse]):
+    async def __call__(self, request: StringRequest) -> StringResponse:
+        return StringResponse(request.value)
+
+
+async def main() -> None:
+    address = Address("localhost", 12345)
+    server = StringServer()
+    await server.serve(address, EchoService())
+
+    message = "Hello from crossbill-demo!"
+    client = StringClient()
+    await client.connect(address)
+    response = await client(StringRequest(message))
+    print(response.value)
+
+    await client.close()
+    await server.close()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Run the Example
+
+```shell
+$ uv run hello.py
+Hello from crossbill-demo!
+```
+
+## Development
 
 The `crossbill` project uses `uv`, "[a]n extremely fast Python package and
 project manager, written in Rust." If you don't have it installed, follow
