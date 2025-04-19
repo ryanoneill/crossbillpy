@@ -9,8 +9,8 @@ stable.
 
 ## Getting Started
 
-No version of Crossbill has been published to PyPI as of yet, so it needs to be
-included as a dependency via `git`. Here's a walkthrough of doing so using `uv`.
+Crossbill is published to PyPI. Here's a walkthrough of how to include it as a
+dependency in your project via `uv`.
 
 ### Create a New Project
 
@@ -22,7 +22,7 @@ $ cd crossbill-demo
 ### Add Crossbill as a Dependency
 
 ```shell
-$ uv add git+https://github.com/ryanoneill/crossbillpy
+$ uv add crossbill
 ```
 
 ### Code the Example
