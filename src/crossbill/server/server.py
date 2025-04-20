@@ -36,7 +36,10 @@ class Server(Closable, ReqRepType):
         pipline = await self.pipeline_factory(service)
         bridge = Bridge(pipline)
         self.server = await asyncio.start_server(bridge, address.host, address.port)
-        _ = asyncio.create_task(self._run(self.server))
+        # Don't assign the created task to '_'. That's a mistake
+        # Doing so allows the background run task to be collected, which
+        # is undesirable.
+        self._run_task = asyncio.create_task(self._run(self.server))
         await self.server.start_serving()
 
     async def close(self) -> None:
