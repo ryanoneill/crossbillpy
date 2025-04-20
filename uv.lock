@@ -56,7 +56,6 @@ source = { virtual = "." }
 [package.dev-dependencies]
 dev = [
     { name = "coverage" },
-    { name = "iperf3" },
     { name = "ipython" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
@@ -69,7 +68,6 @@ dev = [
 [package.metadata.requires-dev]
 dev = [
     { name = "coverage", specifier = ">=7.8.0" },
-    { name = "iperf3", specifier = ">=0.1.11" },
     { name = "ipython", specifier = ">=9.1.0" },
     { name = "pytest", specifier = ">=8.3.5" },
     { name = "pytest-asyncio", specifier = ">=0.26.0" },
@@ -103,12 +101,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/f2/97/ebf4da567aa6827c9
 wheels = [
     { url = "https://files.pythonhosted.org/packages/2c/e1/e6716421ea10d38022b952c159d5161ca1193197fb744506875fbb87ea7b/iniconfig-2.1.0-py3-none-any.whl", hash = "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760", size = 6050 },
 ]
-
-[[package]]
-name = "iperf3"
-version = "0.1.11"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d5/c1/ca9dee2fdd3bf403e90f949da4978ae9ba5330476f867ee8fb28f8c1c26e/iperf3-0.1.11.tar.gz", hash = "sha256:d50eebbf2dcf445a173f98a82f9c433e0302d3dfb7987e1f21b86b35ef63ce26", size = 14286 }
 
 [[package]]
 name = "ipython"
