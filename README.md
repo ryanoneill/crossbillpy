@@ -108,10 +108,3 @@ generate the report when running tests, run the following from the command line.
 ```shell
 $ uv run pytest --cov
 ```
-
-If there are lines with missing coverage, to see which lines in particular, run
-the following from the command line.
-
-```shell
-$ uv run pytest --cov --cov-report term-missing
-```

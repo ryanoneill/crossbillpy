@@ -65,3 +65,6 @@ convention = "google"
 [tool.coverage.run]
 branch = true
 omit = ["tests/**"]
+
+[tool.coverage.report]
+show_missing = true
