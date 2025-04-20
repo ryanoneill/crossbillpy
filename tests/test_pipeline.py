@@ -1,15 +1,15 @@
 import pytest
-from strings import EchoService, SpamService
+from strings import SpamService
 
 from crossbill.core import Pipeline
-from crossbill.string import StringRequestCodec, StringResponseCodec
+from crossbill.string import StringEchoService, StringRequestCodec, StringResponseCodec
 
 
 @pytest.mark.asyncio
 async def test_pipeline() -> None:
     request_codec = StringRequestCodec()
     response_codec = StringResponseCodec()
-    service = EchoService()
+    service = StringEchoService()
     pipeline = Pipeline(request_codec, response_codec, service)
 
     bytes = "Hello World!".encode()

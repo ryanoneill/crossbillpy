@@ -36,7 +36,6 @@ class Server(Closable, ReqRepType):
         except CancelledError:
             pass
 
-
     async def _setup(self, address: Address, service: Service) -> AsyncioServer:
         pipline = await self.pipeline_factory(service)
         bridge = Bridge(pipline)

@@ -1,4 +1,5 @@
 import asyncio
+
 import pytest
 from strings import ReverseService
 
@@ -22,6 +23,7 @@ async def test_strings_e2e() -> None:
 
     await client.close()
     await server.close()
+
 
 @pytest.mark.asyncio
 async def test_strings_connect_only() -> None:

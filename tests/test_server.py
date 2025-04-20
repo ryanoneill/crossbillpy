@@ -1,9 +1,9 @@
 import asyncio
+
 import pytest
-from strings import EchoService
 
 from crossbill.server import Server
-from crossbill.string import StringServer
+from crossbill.string import StringEchoService, StringServer
 from crossbill.transport import Address
 
 
@@ -18,7 +18,7 @@ def test_is_running_on_empty() -> None:
 async def test_is_running_on_running() -> None:
     server = StringServer()
     address = Address("localhost", 10555)
-    await server.serve(address, EchoService())
+    await server.serve(address, StringEchoService())
     assert server.is_running()
     await server.close()
     assert not server.is_running()
@@ -37,7 +37,7 @@ async def test_serve_forever() -> None:
     server = StringServer()
     address = Address("localhost", 10555)
     task = asyncio.create_task(close_serve_forever(server))
-    await server.serve_forever(address, EchoService())
+    await server.serve_forever(address, StringEchoService())
     await task
 
 
@@ -47,4 +47,3 @@ async def close_serve_forever(server: Server) -> None:
     assert server.is_running()
     await server.close()
     assert not server.is_running()
-
