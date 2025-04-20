@@ -51,7 +51,7 @@ wheels = [
 [[package]]
 name = "crossbill"
 version = "0.1.5"
-source = { virtual = "." }
+source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
