@@ -1,5 +1,3 @@
-import pytest
-
 from crossbill.bytes import (
     BytesRequest,
     BytesRequestCodec,
@@ -8,7 +6,6 @@ from crossbill.bytes import (
 )
 
 
-@pytest.mark.asyncio
 async def test_bytes_request_codec() -> None:
     codec = BytesRequestCodec()
     request = BytesRequest(b"hello")
@@ -19,7 +16,6 @@ async def test_bytes_request_codec() -> None:
     assert decoded.value == b"hello"
 
 
-@pytest.mark.asyncio
 async def test_bytes_response_codec() -> None:
     codec = BytesResponseCodec()
     response = BytesResponse(b"goodbye")

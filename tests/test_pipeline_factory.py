@@ -7,7 +7,6 @@ from crossbill.core import PipelineFactory
 from crossbill.string import StringPipelineFactory
 
 
-@pytest.mark.asyncio
 async def test_abstract_pipeline_factory() -> None:
     pipeline_factory = PipelineFactory()
     service = ReverseService()
@@ -15,7 +14,6 @@ async def test_abstract_pipeline_factory() -> None:
         await pipeline_factory(service)
 
 
-@pytest.mark.asyncio
 async def test_string_pipeline_factory() -> None:
     pipeline_factory = StringPipelineFactory()
     service = ReverseService()
@@ -27,7 +25,6 @@ async def test_string_pipeline_factory() -> None:
     assert result.decode() == "!dlroW olleH"
 
 
-@pytest.mark.asyncio
 async def test_bytes_pipeline_factory() -> None:
     pipeline_factory = BytesPipelineFactory()
     service = BytesEchoService()

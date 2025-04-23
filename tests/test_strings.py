@@ -1,13 +1,11 @@
 import asyncio
 
-import pytest
 from strings import ReverseService
 
 from crossbill.string import StringClient, StringRequest, StringServer
 from crossbill.transport import Address
 
 
-@pytest.mark.asyncio
 async def test_strings_e2e() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)
@@ -25,7 +23,6 @@ async def test_strings_e2e() -> None:
     await server.close()
 
 
-@pytest.mark.asyncio
 async def test_strings_connect_only() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)

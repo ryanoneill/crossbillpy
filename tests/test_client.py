@@ -1,9 +1,6 @@
-import pytest
-
 from crossbill.string import StringClient, StringRequest
 
 
-@pytest.mark.asyncio
 async def test_call_on_empty() -> None:
     client = StringClient()
 
@@ -11,7 +8,6 @@ async def test_call_on_empty() -> None:
     await client(StringRequest("hello"))
 
 
-@pytest.mark.asyncio
 async def test_close_on_empty() -> None:
     client = StringClient()
 

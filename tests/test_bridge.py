@@ -1,7 +1,6 @@
 import asyncio
 from asyncio import Server
 
-import pytest
 from strings import StringPipeline
 
 from crossbill.transport import Bridge
@@ -35,7 +34,6 @@ async def send_client_oneshot(host: str, port: int, message: bytes) -> bytes:
     return data
 
 
-@pytest.mark.asyncio
 async def test_bridge() -> None:
     host = "localhost"
     port = 10234  # TODO: Use ephemeral port instead

@@ -1,11 +1,9 @@
-import pytest
 from strings import SpamService
 
 from crossbill.core import Pipeline
 from crossbill.string import StringEchoService, StringRequestCodec, StringResponseCodec
 
 
-@pytest.mark.asyncio
 async def test_pipeline() -> None:
     request_codec = StringRequestCodec()
     response_codec = StringResponseCodec()
@@ -18,7 +16,6 @@ async def test_pipeline() -> None:
     assert result.decode() == "Hello World!"
 
 
-@pytest.mark.asyncio
 async def test_pipeline_spam() -> None:
     request_codec = StringRequestCodec()
     response_codec = StringResponseCodec()

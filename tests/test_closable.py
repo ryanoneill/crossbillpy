@@ -18,14 +18,12 @@ class GoodResource(Closable):
         self.is_open = False
 
 
-@pytest.mark.asyncio
 async def test_bad_closable() -> None:
     resource = BadResource()
     with pytest.raises(NotImplementedError):
         await resource.close()
 
 
-@pytest.mark.asyncio
 async def test_good_closable() -> None:
     resource = GoodResource()
     assert resource.is_open

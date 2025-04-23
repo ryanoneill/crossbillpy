@@ -1,11 +1,9 @@
-import pytest
 from bytes import BytesEchoService
 
 from crossbill.bytes import BytesClient, BytesRequest, BytesServer
 from crossbill.transport import Address
 
 
-@pytest.mark.asyncio
 async def test_bytes_e2e() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)

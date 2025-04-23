@@ -9,21 +9,18 @@ from crossbill.string import (
 )
 
 
-@pytest.mark.asyncio
 async def test_service_base_not_implemented() -> None:
     service = Service[StringRequest, StringResponse]()
     with pytest.raises(NotImplementedError):
         _ = await service(StringRequest("hello"))
 
 
-@pytest.mark.asyncio
 async def test_string_service_base_not_implemented() -> None:
     service = StringService()
     with pytest.raises(NotImplementedError):
         _ = await service(StringRequest("hello"))
 
 
-@pytest.mark.asyncio
 async def test_echo() -> None:
     service = StringEchoService()
     request = StringRequest("hello")

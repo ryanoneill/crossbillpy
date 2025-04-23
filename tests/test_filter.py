@@ -22,7 +22,6 @@ class UppercaseFilter(Filter[StringRequest, StringResponse]):
         return response
 
 
-@pytest.mark.asyncio
 async def test_filter_base_not_implemented() -> None:
     filter = Filter()
     request = StringRequest("test")
@@ -31,7 +30,6 @@ async def test_filter_base_not_implemented() -> None:
         _ = await filter(request, service)
 
 
-@pytest.mark.asyncio
 async def test_reverse_response() -> None:
     filter = ReverseResponseFilter()
 
@@ -50,7 +48,6 @@ async def test_reverse_response() -> None:
     assert result == "olleh"
 
 
-@pytest.mark.asyncio
 async def test_combined_filter() -> None:
     combined = CombinedFilter([UppercaseFilter(), ReverseResponseFilter()])
     request = StringRequest("hello")

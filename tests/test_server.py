@@ -1,7 +1,5 @@
 import asyncio
 
-import pytest
-
 from crossbill.server import Server
 from crossbill.string import StringEchoService, StringServer
 from crossbill.transport import Address
@@ -14,7 +12,6 @@ def test_is_running_on_empty() -> None:
     assert not result
 
 
-@pytest.mark.asyncio
 async def test_is_running_on_running() -> None:
     server = StringServer()
     address = Address("localhost", 10555)
@@ -24,7 +21,6 @@ async def test_is_running_on_running() -> None:
     assert not server.is_running()
 
 
-@pytest.mark.asyncio
 async def test_close_on_empty() -> None:
     server = StringServer()
 
@@ -32,7 +28,6 @@ async def test_close_on_empty() -> None:
     await server.close()
 
 
-@pytest.mark.asyncio
 async def test_serve_forever() -> None:
     server = StringServer()
     address = Address("localhost", 10555)

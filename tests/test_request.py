@@ -20,7 +20,6 @@ def test_string_request() -> None:
     assert request.value == "abcdefg"
 
 
-@pytest.mark.asyncio
 async def test_request_codec() -> None:
     data = b"\xf0\x9f\xa4\xa9"  # "🤩"
     codec = StringRequestCodec()
