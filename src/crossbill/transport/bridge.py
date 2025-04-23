@@ -17,3 +17,5 @@ class Bridge(ReqRepType):
         while in_data := await reader.read(1024):
             out_data = await self.pipeline(in_data)
             writer.write(out_data)
+        writer.close()
+        await writer.wait_closed()
