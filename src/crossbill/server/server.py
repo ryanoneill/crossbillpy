@@ -37,8 +37,8 @@ class Server(Closable, ReqRepType):
             pass
 
     async def _setup(self, address: Address, service: Service) -> AsyncioServer:
-        pipline = await self.pipeline_factory(service)
-        bridge = Bridge(pipline)
+        pipeline = await self.pipeline_factory(service)
+        bridge = Bridge(pipeline)
         return await asyncio.start_server(bridge, address.host, address.port)
 
     async def serve(self, address: Address, service: Service) -> None:
