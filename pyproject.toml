@@ -7,7 +7,7 @@ version = "0.1.5"
 license = "MIT"
 description = "A library for building Finagle-style asynchronous clients and servers"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = []
 keywords = [
     "crossbill",
