@@ -66,10 +66,11 @@ convention = "google"
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["D"]
 "scripts/**" = ["D"]
+"examples/**" = ["D"]
 
 [tool.coverage.run]
 branch = true
-omit = ["tests/**", "scripts/**"]
+omit = ["tests/**", "scripts/**", "examples/**"]
 
 [tool.coverage.report]
 show_missing = true
