@@ -38,8 +38,8 @@ class Server(Closable, ReqRepType):
 
     async def _setup(self, address: Address, service: Service) -> AsyncioServer:
         pipeline = await self.pipeline_factory(service)
-        bridge = Bridge(pipeline)
-        return await asyncio.start_server(bridge, address.host, address.port)
+        self._bridge = Bridge(pipeline)
+        return await asyncio.start_server(self._bridge, address.host, address.port)
 
     async def serve(self, address: Address, service: Service) -> None:
         """Start listening on the given `Address` and pass requests to `Service`."""
@@ -62,6 +62,9 @@ class Server(Closable, ReqRepType):
     async def close(self) -> None:
         """Close a `Server`. If not running, that's ok."""
         if self.server:
+            if self._bridge:
+                await self._bridge.close()
+                self._bridge = None
             if self._run_task:
                 self._run_task.cancel("Closing")
             self.server.close()

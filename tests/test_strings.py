@@ -23,6 +23,24 @@ async def test_strings_e2e() -> None:
     await server.close()
 
 
+async def test_strings_e2e_server_close_first() -> None:
+    # TODO: Use ephemeral port instead
+    address = Address("localhost", 10234)
+
+    server = StringServer()
+    await server.serve(address, ReverseService())
+
+    message = "Hello World!"
+    client = StringClient()
+    await client.connect(address)
+    response = await client(StringRequest(message))
+    assert response.value == "!dlroW olleH"
+
+    # Ordering here should not matter
+    await server.close()
+    await client.close()
+
+
 async def test_strings_connect_only() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)

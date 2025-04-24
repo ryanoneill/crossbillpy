@@ -28,6 +28,21 @@ async def test_close_on_empty() -> None:
     await server.close()
 
 
+async def test_close_with_no_bridge() -> None:
+    # This test is fairly artificial
+    # It covers a case in `close` for when the `bridge` is None
+    server = StringServer()
+    address = Address("localhost", 10555)
+    await server.serve(address, StringEchoService())
+    assert server.is_running()
+    
+    # Artificial. Should not happen during running.
+    server._bridge = None
+
+    await server.close()
+    assert not server.is_running()
+
+
 async def test_serve_forever() -> None:
     server = StringServer()
     address = Address("localhost", 10555)
