@@ -65,8 +65,6 @@ class Server(Closable, ReqRepType):
             if self._bridge:
                 await self._bridge.close()
                 self._bridge = None
-            if self._run_task:
-                self._run_task.cancel("Closing")
             self.server.close()
             await self.server.wait_closed()
             self.server = None
