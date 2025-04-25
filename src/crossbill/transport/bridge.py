@@ -19,7 +19,7 @@ class Bridge(Closable, ReqRepType):
         """Asynchronously shuffle `bytes` from a `StreamReader`/`StreamWriter`."""
         while not self._exiting.is_set():
             try:
-                async with asyncio.timeout(0.5):
+                async with asyncio.timeout(0.1):
                     in_data = await reader.read(1024)
                 if in_data != b"":
                     out_data = await self.pipeline(in_data)
