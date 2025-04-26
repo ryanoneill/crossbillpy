@@ -51,6 +51,7 @@ package = true
 venvPath = "."
 venv = ".venv"
 pythonVersion = "3.11"
+typeCheckingMode = "standard" # eventually move to "strict"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
