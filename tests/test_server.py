@@ -35,7 +35,7 @@ async def test_close_with_no_bridge() -> None:
     address = Address("localhost", 10555)
     await server.serve(address, StringEchoService())
     assert server.is_running()
-    
+
     # Artificial. Should not happen during running.
     server._bridge = None
 

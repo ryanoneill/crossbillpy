@@ -14,7 +14,6 @@ class Bridge(Closable, ReqRepType):
         self.pipeline = pipeline
         self._exiting = Event()
 
-
     async def __call__(self, reader: StreamReader, writer: StreamWriter) -> None:
         """Asynchronously shuffle `bytes` from a `StreamReader`/`StreamWriter`."""
         while not self._exiting.is_set():
@@ -30,7 +29,6 @@ class Bridge(Closable, ReqRepType):
                 pass
         writer.close()
         await writer.wait_closed()
-
 
     async def close(self) -> None:
         self._exiting.set()

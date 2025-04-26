@@ -56,6 +56,7 @@ async def test_strings_connect_only() -> None:
 
     await server.close()
 
+
 async def test_strings_multiple_messages() -> None:
     # TODO: Use ephemeral port instead
     address = Address("localhost", 10234)
@@ -76,10 +77,9 @@ async def test_strings_multiple_messages() -> None:
     for message in messages:
         # Delay in between to ensure the read timeout isn't affecting
         # whether the client maintains a connection.
-        await asyncio.sleep(.150)
+        await asyncio.sleep(0.150)
         response = await client(StringRequest(message))
         assert response.value == message[::-1]
 
     await client.close()
     await server.close()
-
