@@ -1,7 +1,7 @@
 """Module that includes the `Bridge` class."""
 
-from asyncio import Event, StreamReader, StreamWriter
 import asyncio
+from asyncio import Event, StreamReader, StreamWriter
 
 from ..core import Closable, Pipeline, ReqRepType
 
@@ -31,4 +31,5 @@ class Bridge(Closable, ReqRepType):
         await writer.wait_closed()
 
     async def close(self) -> None:
+        """Close the `Bridge`. This will cause all clients to be closed."""
         self._exiting.set()
