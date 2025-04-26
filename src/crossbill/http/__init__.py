@@ -7,4 +7,6 @@ Crossbill http provides the components necessary to create clients and servers
 that operate on http requests and responses.
 """
 
-__all__ = []
+from .method import Method
+
+__all__ = ["Method"]
