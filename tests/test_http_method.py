@@ -3,6 +3,8 @@ from crossbill.http import Method
 
 def assert_method(method: Method, text: str) -> None:
     assert str(method) == text
+    assert method.value == text
+    assert method.verb == text
 
 
 def test_get() -> None:

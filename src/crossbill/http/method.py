@@ -1,21 +1,22 @@
 """Module that provides the `Method` class."""
 
-from enum import Enum, auto
+from enum import StrEnum
 
 
-class Method(Enum):
+class Method(StrEnum):
     """Representation of an HTTP Request Method, which indicates its purpose."""
 
-    GET = auto()
-    HEAD = auto()
-    POST = auto()
-    PUT = auto()
-    DELETE = auto()
-    CONNECT = auto()
-    OPTIONS = auto()
-    TRACE = auto()
-    PATCH = auto()
+    GET = "GET"
+    HEAD = "HEAD"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+    CONNECT = "CONNECT"
+    OPTIONS = "OPTIONS"
+    TRACE = "TRACE"
+    PATCH = "PATCH"
 
-    def __str__(self) -> str:
-        """Return the `Method` name as its uppercase version."""
-        return f"{self.name}"
+    @property
+    def verb(self) -> str:
+        """Returns the uppercase version of the HTTP method name."""
+        return self.value
