@@ -8,5 +8,9 @@ that operate on http requests and responses.
 """
 
 from .method import Method
+from .status import Status
 
-__all__ = ["Method"]
+__all__ = [
+    "Method",
+    "Status",
+]
