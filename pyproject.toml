@@ -38,6 +38,7 @@ Repository = "https://github.com/ryanoneill/crossbillpy"
 dev = [
     "coverage>=7.8.0",
     "ipython>=9.1.0",
+    "mypy>=1.15.0",
     "pytest>=8.3.5",
     "pytest-asyncio>=0.26.0",
     "pytest-cov>=6.1.1",
@@ -76,3 +77,7 @@ omit = ["tests/**", "scripts/**", "examples/**"]
 
 [tool.coverage.report]
 show_missing = true
+
+[tool.mypy]
+python_version = "3.11"
+exclude = ["scripts", "tests"]
