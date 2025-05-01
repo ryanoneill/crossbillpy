@@ -1,7 +1,8 @@
 """Module that includes the `Server` class."""
 
 import asyncio
-from asyncio import Server as AsyncioServer, Task
+from asyncio import Server as AsyncioServer
+from asyncio import Task
 from asyncio.exceptions import CancelledError
 from typing import Generic, Optional
 

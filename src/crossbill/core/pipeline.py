@@ -1,6 +1,7 @@
 """Module that includes the `Pipeline` class."""
 
 from typing import Generic
+
 from .request import RequestCodec, RequestType
 from .response import ResponseCodec, ResponseType
 from .service import Service
