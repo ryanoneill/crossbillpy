@@ -88,6 +88,17 @@ dependencies are properly installed.
 ```shell
 $ uv sync
 ```
+### Typing
+
+This project uses type hints extensively, and uses `mypy` specifically to see
+issues related to them.
+
+To see the existing issues, run the following from the command line.
+
+```shell
+$ uv run mypy .
+```
+
 ### Testing
 
 This project uses `pytest` along with `asyncio` in order to run asynchronous
