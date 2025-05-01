@@ -1,7 +1,8 @@
 """Module that contains the `Client` class."""
 
 import asyncio
-from typing import Generic
+from asyncio import StreamReader, StreamWriter
+from typing import Generic, Optional
 
 from ..core import (
     Closable,
@@ -20,10 +21,10 @@ class Client(Closable, Generic[RequestType, ResponseType]):
         self, request_codec: RequestCodec, response_codec: ResponseCodec
     ) -> None:
         """Initialize a `Client` based on the included `Codec`s."""
-        self.request_codec = request_codec
-        self.response_codec = response_codec
-        self.reader = None
-        self.writer = None
+        self.request_codec: RequestCodec = request_codec
+        self.response_codec: ResponseCodec = response_codec
+        self.reader: Optional[StreamReader] = None
+        self.writer: Optional[StreamWriter] = None
 
     async def connect(self, address: Address) -> None:
         """Connect to the `Address` so that `Request`s may be sent."""
