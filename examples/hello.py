@@ -4,6 +4,7 @@ from crossbill.string import (
     StringClient,
     StringEchoService,
     StringRequest,
+    StringResponse,
     StringServer,
 )
 from crossbill.transport import Address
@@ -17,7 +18,7 @@ async def main() -> None:
     message = "Hello from crossbill-demo!"
     client = StringClient()
     await client.connect(address)
-    response = await client(StringRequest(message))
+    response: StringResponse = await client(StringRequest(message))
     print(response.value)
 
     await client.close()
