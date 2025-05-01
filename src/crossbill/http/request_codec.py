@@ -51,8 +51,7 @@ class HttpRequestCodec(RequestCodec[HttpRequest]):
         while not done:
             buffer = b""
             while buffer[-2:] != b"\r\n":
-                value = reader.read(1)
-                buffer += value
+                buffer += reader.read(1)
             if buffer == b"\r\n":
                 done = True
             else:
