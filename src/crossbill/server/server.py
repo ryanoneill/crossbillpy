@@ -1,7 +1,7 @@
 """Module that includes the `Server` class."""
 
 import asyncio
-from asyncio import Server as AsyncioServer
+from asyncio import Server as AsyncioServer, Task
 from asyncio.exceptions import CancelledError
 from typing import Generic, Optional
 
@@ -20,7 +20,8 @@ class Server(Closable, Generic[RequestType, ResponseType]):
         """
         self.pipeline_factory = pipeline_factory
         self.server: Optional[AsyncioServer] = None
-        self._run_task = None
+        self._run_task: Optional[Task] = None
+        self._bridge: Optional[Bridge] = None
 
     def is_running(self) -> bool:
         """Returns `True` if the `Server` is running, `False` otherwise."""
