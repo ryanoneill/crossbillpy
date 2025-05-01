@@ -1,13 +1,13 @@
 """Module that includes the `Service` abstract class."""
 
 from abc import abstractmethod
+from typing import Generic
 
-from .reqrep import ReqRepType
 from .request import RequestType
 from .response import ResponseType
 
 
-class Service(ReqRepType):
+class Service(Generic[RequestType, ResponseType]):
     """A `Service` is an asynchronous function from a `Request` to a `Response`.
 
     A `Service` transforms an instance of an input type (i.e. `Request`) to an

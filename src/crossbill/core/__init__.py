@@ -20,7 +20,6 @@ from .filter import Filter
 from .filtered_service import FilteredService
 from .pipeline import Pipeline
 from .pipeline_factory import PipelineFactory
-from .reqrep import ReqRepType
 from .request import (
     Request,
     RequestCodec,
@@ -45,7 +44,6 @@ __all__ = [
     "FilteredService",
     "Pipeline",
     "PipelineFactory",
-    "ReqRepType",
     "Request",
     "RequestCodec",
     "RequestType",

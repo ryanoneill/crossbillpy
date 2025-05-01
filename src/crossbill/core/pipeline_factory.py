@@ -1,13 +1,15 @@
 """Module that includes the `PipelineFactory` abstract class."""
 
 from abc import abstractmethod
+from typing import Generic
 
 from .pipeline import Pipeline
-from .reqrep import ReqRepType
+from .request import RequestType
+from .response import ResponseType
 from .service import Service
 
 
-class PipelineFactory(ReqRepType):
+class PipelineFactory(Generic[RequestType, ResponseType]):
     """A `PipelineFactory` when called will create an instance of a `Pipeline`."""
 
     @abstractmethod

@@ -2,11 +2,12 @@
 
 import asyncio
 from asyncio import Event, StreamReader, StreamWriter
+from typing import Generic
 
-from ..core import Closable, Pipeline, ReqRepType
+from ..core import Closable, Pipeline, RequestType, ResponseType
 
 
-class Bridge(Closable, ReqRepType):
+class Bridge(Closable, Generic[RequestType, ResponseType]):
     """A `Bridge` is shuffles `bytes` to and from an underlying transport."""
 
     def __init__(self, pipeline: Pipeline) -> None:
