@@ -1,10 +1,10 @@
 """Module that contains the `Client` class."""
 
 import asyncio
+from typing import Generic
 
 from ..core import (
     Closable,
-    ReqRepType,
     RequestCodec,
     RequestType,
     ResponseCodec,
@@ -13,7 +13,7 @@ from ..core import (
 from ..transport import Address
 
 
-class Client(Closable, ReqRepType):
+class Client(Closable, Generic[RequestType, ResponseType]):
     """A `Client` sends `Request`s and receives `Response`s from `Server`s."""
 
     def __init__(

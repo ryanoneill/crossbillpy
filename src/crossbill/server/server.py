@@ -3,13 +3,13 @@
 import asyncio
 from asyncio import Server as AsyncioServer
 from asyncio.exceptions import CancelledError
-from typing import Optional
+from typing import Generic, Optional
 
-from ..core import Closable, PipelineFactory, ReqRepType, Service
+from ..core import Closable, PipelineFactory, RequestType, ResponseType, Service
 from ..transport import Address, Bridge
 
 
-class Server(Closable, ReqRepType):
+class Server(Closable, Generic[RequestType, ResponseType]):
     """A `Server` handles `Request`s and returns `Response`s to `Client`s."""
 
     def __init__(self, pipeline_factory: PipelineFactory) -> None:
