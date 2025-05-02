@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import Dict
 
 from ..core import Response
-from .status import Status
+from .status import HttpStatus
 
 
 class HttpResponse(Response):
@@ -13,5 +13,5 @@ class HttpResponse(Response):
     def __init__(self) -> None:
         """Initialize an `HttpResponse`."""
         self.headers: Dict[str, str] = defaultdict(str)
-        self.status: Status = Status.OK
+        self.status: HttpStatus = HttpStatus.OK
         self.body: bytes = b""

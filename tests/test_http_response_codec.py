@@ -1,14 +1,14 @@
 import json
 from typing import List
 
-from crossbill.http import HttpResponse, HttpResponseCodec, Status
+from crossbill.http import HttpResponse, HttpResponseCodec, HttpStatus
 
 
 async def test_encode() -> None:
     codec = HttpResponseCodec()
 
     response = HttpResponse()
-    response.status = Status.FORBIDDEN
+    response.status = HttpStatus.FORBIDDEN
     response.headers["Server"] = "Apache"
     response.headers["Date"] = "Fri, 21 Jun 2024 12:52:39 GMT"
     response.headers["Content-Length"] = "345"
@@ -49,7 +49,7 @@ async def test_decode() -> None:
 
     response = await codec.decode(bytes)
 
-    assert response.status == Status.FORBIDDEN
+    assert response.status == HttpStatus.FORBIDDEN
     assert len(response.headers) == 5
     assert response.headers["Server"] == "Apache"
     assert response.headers["Date"] == "Fri, 21 Jun 2024 12:52:39 GMT"
@@ -77,7 +77,7 @@ async def test_decode_no_body() -> None:
 
     response = await codec.decode(bytes)
 
-    assert response.status == Status.FORBIDDEN
+    assert response.status == HttpStatus.FORBIDDEN
     assert len(response.headers) == 4
     assert response.headers["Server"] == "Apache"
     assert response.headers["Date"] == "Fri, 21 Jun 2024 12:52:39 GMT"

@@ -15,7 +15,7 @@ For example:
 * HttpResponseCodec
 * HttpServer
 * HttpService
-* Status
+* HttpStatus
 """
 
 from .client import HttpClient
@@ -27,7 +27,7 @@ from .response import HttpResponse
 from .response_codec import HttpResponseCodec
 from .server import HttpServer
 from .service import HttpService
-from .status import Status
+from .status import HttpStatus
 
 __all__ = [
     "HttpClient",
@@ -39,5 +39,5 @@ __all__ = [
     "HttpResponseCodec",
     "HttpServer",
     "HttpService",
-    "Status",
+    "HttpStatus",
 ]

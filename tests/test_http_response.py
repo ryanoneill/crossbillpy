@@ -1,4 +1,4 @@
-from crossbill.http import HttpResponse, Status
+from crossbill.http import HttpResponse, HttpStatus
 
 
 def test_response() -> None:
@@ -8,12 +8,12 @@ def test_response() -> None:
 
     assert response.headers["Location"] == ""
     assert response.body == b""
-    assert response.status == Status.OK
+    assert response.status == HttpStatus.OK
 
     response.headers["Location"] = "http://www.example.com/users/123"
     response.body = b"body content"
-    response.status = Status.FOUND
+    response.status = HttpStatus.FOUND
 
     assert response.headers["Location"] == "http://www.example.com/users/123"
     assert response.body == b"body content"
-    assert response.status == Status.FOUND
+    assert response.status == HttpStatus.FOUND

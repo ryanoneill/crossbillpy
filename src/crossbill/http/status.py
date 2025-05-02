@@ -1,9 +1,9 @@
-"""Module that provides the `Status` class."""
+"""Module that provides the `HttpStatus` class."""
 
 from enum import IntEnum
 
 
-class Status(IntEnum):
+class HttpStatus(IntEnum):
     """Representation of an HTTP Response Status and associated code."""
 
     # Informational Responses
@@ -81,11 +81,11 @@ class Status(IntEnum):
 
     @property
     def code(self) -> int:
-        """Return the code associated with the `Status`."""
+        """Return the code associated with the `HttpStatus`."""
         return self.value
 
     def __str__(self) -> str:
-        """Return the text associated with the `Status`."""
+        """Return the text associated with the `HttpStatus`."""
         result: str = ""
         match self.code:
             case 100:

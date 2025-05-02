@@ -4,7 +4,7 @@ from crossbill.http import (
     HttpResponse,
     HttpServer,
     HttpService,
-    Status,
+    HttpStatus,
 )
 from crossbill.transport import Address
 
@@ -15,7 +15,7 @@ class HelloHttpService(HttpService):
         content_length = len(body)
 
         response = HttpResponse()
-        response.status = Status.OK
+        response.status = HttpStatus.OK
         response.headers["Content-Type"] = "text/plain"
         response.headers["Content-Length"] = str(content_length)
         response.body = body

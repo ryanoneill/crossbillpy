@@ -3,14 +3,14 @@ from crossbill.http import (
     HttpRequest,
     HttpResponse,
     HttpService,
-    Status,
+    HttpStatus,
 )
 
 
 class HttpNoContentService(HttpService):
     async def __call__(self, request: HttpRequest) -> HttpResponse:
         response = HttpResponse()
-        response.status = Status.NO_CONTENT
+        response.status = HttpStatus.NO_CONTENT
         return response
 
 

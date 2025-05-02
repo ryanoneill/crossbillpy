@@ -4,7 +4,7 @@ from io import BytesIO
 
 from ..core import ResponseCodec
 from .response import HttpResponse
-from .status import Status
+from .status import HttpStatus
 
 
 class HttpResponseCodec(ResponseCodec[HttpResponse]):
@@ -38,7 +38,7 @@ class HttpResponseCodec(ResponseCodec[HttpResponse]):
         raw_response_line = reader.readline()
         response_line = raw_response_line.decode()
         parts = response_line.split(" ")
-        status = Status(int(parts[1]))
+        status = HttpStatus(int(parts[1]))
         response.status = status
 
     async def _read_response_headers(
