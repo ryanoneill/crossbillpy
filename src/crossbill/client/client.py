@@ -41,7 +41,12 @@ class Client(Closable, Generic[RequestType, ResponseType]):
         if self.reader and self.writer:
             self.writer.write(data)
             await self.writer.drain()
-            result = await self.reader.read(1024)
+            try:
+                async with asyncio.timeout(0.100):
+                    while (in_data := await self.reader.read(1)) != b"":
+                        result += in_data
+            except TimeoutError:
+                pass
         return result
 
     async def __call__(self, request: RequestType) -> ResponseType:

@@ -69,9 +69,15 @@ class HttpResponseCodec(ResponseCodec[HttpResponse]):
         # TODO: Make more robust
         # * Handle `Content-Length` not being title cased.
         # * Handle Reader not able to read requested number of bytes.
+        # * Handle `Transfer-Encoding` chunked better.
         if "Content-Length" in response.headers:
             length = int(response.headers["Content-Length"])
             response.body = reader.read(length)
+        else:
+            body = b""
+            while (in_data := reader.read(1)) != b"":
+                body += in_data
+            response.body = body
 
     async def _write_response_line(
         self, writer: bytearray, response: HttpResponse
