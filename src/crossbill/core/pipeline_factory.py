@@ -13,6 +13,8 @@ class PipelineFactory(Generic[RequestType, ResponseType]):
     """A `PipelineFactory` when called will create an instance of a `Pipeline`."""
 
     @abstractmethod
-    async def __call__(self, service: Service) -> Pipeline:
+    async def __call__(
+        self, service: Service[RequestType, ResponseType]
+    ) -> Pipeline[RequestType, ResponseType]:
         """Returns a `Pipeline` based on the provided `Service`."""
         raise NotImplementedError()
