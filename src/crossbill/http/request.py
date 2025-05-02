@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import Dict
 
 from ..core import Request
-from .method import Method
+from .method import HttpMethod
 
 
 class HttpRequest(Request):
@@ -14,5 +14,5 @@ class HttpRequest(Request):
         """Initialize an `HttpRequest`."""
         self.headers: Dict[str, str] = defaultdict(str)
         self.body: bytes = b""
-        self.method: Method = Method.GET
+        self.method: HttpMethod = HttpMethod.GET
         self.uri: str = "/"

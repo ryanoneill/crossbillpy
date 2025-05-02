@@ -1,4 +1,4 @@
-from crossbill.http import HttpRequest, Method
+from crossbill.http import HttpRequest, HttpMethod
 
 
 def test_request() -> None:
@@ -8,15 +8,15 @@ def test_request() -> None:
 
     assert request.headers["Host"] == ""
     assert request.body == b""
-    assert request.method == Method.GET
+    assert request.method == HttpMethod.GET
     assert request.uri == "/"
 
     request.headers["Host"] = "localhost"
     request.body = "body content".encode()
-    request.method = Method.POST
+    request.method = HttpMethod.POST
     request.uri = "/abcd"
 
     assert request.headers["Host"] == "localhost"
     assert request.body == b"body content"
-    assert request.method == Method.POST
+    assert request.method == HttpMethod.POST
     assert request.uri == "/abcd"

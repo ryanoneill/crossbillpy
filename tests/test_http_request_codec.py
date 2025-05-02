@@ -1,14 +1,14 @@
 import json
 from typing import List
 
-from crossbill.http import HttpRequest, HttpRequestCodec, Method
+from crossbill.http import HttpRequest, HttpRequestCodec, HttpMethod
 
 
 async def test_encode() -> None:
     codec = HttpRequestCodec()
 
     request = HttpRequest()
-    request.method = Method.POST
+    request.method = HttpMethod.POST
     request.uri = "/"
     request.headers["Host"] = "developer.mozilla.org"
     request.headers["User-Agent"] = "curl/8.6.0"
@@ -49,7 +49,7 @@ async def test_decode() -> None:
 
     request = await codec.decode(bytes)
 
-    assert request.method == Method.POST
+    assert request.method == HttpMethod.POST
     assert request.uri == "/"
     assert len(request.headers) == 5
     assert request.headers["Host"] == "developer.mozilla.org"
@@ -78,7 +78,7 @@ async def test_decode_no_body() -> None:
 
     request = await codec.decode(bytes)
 
-    assert request.method == Method.GET
+    assert request.method == HttpMethod.GET
     assert request.uri == "/"
     assert len(request.headers) == 3
     assert request.headers["Host"] == "example.com"

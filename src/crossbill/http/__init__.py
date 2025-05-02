@@ -7,6 +7,7 @@ Crossbill http provides the components necessary to create clients and servers
 that operate on http requests and responses.
 For example:
 * HttpClient
+* HttpMethod
 * HttpPipelineFactory
 * HttpRequest
 * HttpRequestCodec
@@ -14,12 +15,11 @@ For example:
 * HttpResponseCodec
 * HttpServer
 * HttpService
-* Method
 * Status
 """
 
 from .client import HttpClient
-from .method import Method
+from .method import HttpMethod
 from .pipeline_factory import HttpPipelineFactory
 from .request import HttpRequest
 from .request_codec import HttpRequestCodec
@@ -31,6 +31,7 @@ from .status import Status
 
 __all__ = [
     "HttpClient",
+    "HttpMethod",
     "HttpPipelineFactory",
     "HttpRequest",
     "HttpRequestCodec",
@@ -38,6 +39,5 @@ __all__ = [
     "HttpResponseCodec",
     "HttpServer",
     "HttpService",
-    "Method",
     "Status",
 ]

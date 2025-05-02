@@ -3,7 +3,7 @@
 from io import BytesIO
 
 from ..core import RequestCodec
-from .method import Method
+from .method import HttpMethod
 from .request import HttpRequest
 
 
@@ -36,7 +36,7 @@ class HttpRequestCodec(RequestCodec[HttpRequest]):
         raw_request_line = reader.readline()
         request_line = raw_request_line.decode()
         parts = request_line.split(" ")
-        request.method = Method(parts[0].upper())
+        request.method = HttpMethod(parts[0].upper())
         request.uri = parts[1]
 
     async def _read_request_headers(

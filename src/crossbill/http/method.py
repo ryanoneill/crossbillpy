@@ -1,9 +1,9 @@
-"""Module that provides the `Method` class."""
+"""Module that provides the `HttpMethod` class."""
 
 from enum import StrEnum
 
 
-class Method(StrEnum):
+class HttpMethod(StrEnum):
     """Representation of an HTTP Request Method, which indicates its purpose."""
 
     GET = "GET"

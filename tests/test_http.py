@@ -1,7 +1,15 @@
 import asyncio
 
-from crossbill.http import HttpClient, HttpRequest, HttpResponse, HttpServer, HttpService, Status
+from crossbill.http import (
+    HttpClient,
+    HttpRequest,
+    HttpResponse,
+    HttpServer,
+    HttpService,
+    Status,
+)
 from crossbill.transport import Address
+
 
 class HelloHttpService(HttpService):
     async def __call__(self, request: HttpRequest) -> HttpResponse:
@@ -15,6 +23,7 @@ class HelloHttpService(HttpService):
         response.body = body
 
         return response
+
 
 async def test_strings_e2e() -> None:
     # TODO: Use ephemeral port instead
