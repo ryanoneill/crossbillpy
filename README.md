@@ -1,5 +1,7 @@
 # Crossbill
 
+[![PyPI version](https://img.shields.io/pypi/v/crossbill.svg)](https://pypi.org/project/crossbill/)
+
 ## Description
 
 Crossbill is a Python library focused on building Finagle-style `Service`-based
