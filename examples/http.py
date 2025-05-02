@@ -2,22 +2,12 @@ import asyncio
 
 from crossbill.http import (
     HttpClient,
+    HttpEchoService,
     HttpRequest,
     HttpResponse,
     HttpServer,
-    HttpService,
-    HttpStatus,
 )
 from crossbill.transport import Address
-
-class HttpEchoService(HttpService):
-    async def __call__(self, request: HttpRequest) -> HttpResponse:
-        response = HttpResponse()
-        response.body = request.body
-        response.headers["Content-Length"] = str(len(request.body))
-        response.headers["Content-Type"] = request.headers["Content-Type"]
-
-        return response
 
 
 async def main() -> None:

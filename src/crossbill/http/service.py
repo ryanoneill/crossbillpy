@@ -14,3 +14,20 @@ class HttpService(Service[HttpRequest, HttpResponse]):
     async def __call__(self, request: HttpRequest) -> HttpResponse:
         """Return an `HttpResponse` based on the provided `HttpRequest`."""
         raise NotImplementedError()
+
+
+class HttpEchoService(HttpService):
+    """An exemplary `HttpService` that returns the `body` passed by the `HttpClient`.
+
+    This `Service` is most useful for testing and deconstructing `HttpRequest`s sent
+    by non-crossbill clients.
+    """
+
+    async def __call__(self, request: HttpRequest) -> HttpResponse:
+        """Return the same `body` passed by the `HttpRequest`."""
+        response = HttpResponse()
+        response.body = request.body
+        response.headers["Content-Length"] = str(len(request.body))
+        response.headers["Content-Type"] = request.headers["Content-Type"]
+
+        return response
