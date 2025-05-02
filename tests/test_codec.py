@@ -38,7 +38,7 @@ async def test_codec_decode_encode() -> None:
 
 
 async def test_identity_codec() -> None:
-    codec = IdentityCodec()
+    codec: IdentityCodec[str] = IdentityCodec()
     value = "Hello World"
     encoded = await codec.encode(value)
     assert value == encoded

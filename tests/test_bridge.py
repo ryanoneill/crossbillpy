@@ -3,6 +3,7 @@ from asyncio import Server
 
 from strings import StringPipeline
 
+from crossbill.string import StringRequest, StringResponse
 from crossbill.transport import Bridge
 
 
@@ -11,7 +12,9 @@ async def run_server(server: Server) -> None:
         await server.serve_forever()
 
 
-async def create_server(host: str, port: int, bridge: Bridge) -> Server:
+async def create_server(
+    host: str, port: int, bridge: Bridge[StringRequest, StringResponse]
+) -> Server:
     server = await asyncio.start_server(bridge, host, port)
     return server
 

@@ -10,7 +10,7 @@ from ..core import Closable, Pipeline, RequestType, ResponseType
 class Bridge(Closable, Generic[RequestType, ResponseType]):
     """A `Bridge` is shuffles `bytes` to and from an underlying transport."""
 
-    def __init__(self, pipeline: Pipeline) -> None:
+    def __init__(self, pipeline: Pipeline[RequestType, ResponseType]) -> None:
         """Initialize a `Bridge` by supplying a `Pipeline`."""
         self.pipeline = pipeline
         self._exiting = Event()

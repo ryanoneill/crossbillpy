@@ -86,7 +86,7 @@ class Status(IntEnum):
 
     def __str__(self) -> str:
         """Return the text associated with the `Status`."""
-        result = ""
+        result: str = ""
         match self.code:
             case 100:
                 result = "Continue"

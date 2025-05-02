@@ -13,7 +13,9 @@ from ..transport import Address, Bridge
 class Server(Closable, Generic[RequestType, ResponseType]):
     """A `Server` handles `Request`s and returns `Response`s to `Client`s."""
 
-    def __init__(self, pipeline_factory: PipelineFactory) -> None:
+    def __init__(
+        self, pipeline_factory: PipelineFactory[RequestType, ResponseType]
+    ) -> None:
         """Initialize a `Server`.
 
         The `PipelineFactory` is used to create a `Pipeline` from the
@@ -21,8 +23,8 @@ class Server(Closable, Generic[RequestType, ResponseType]):
         """
         self.pipeline_factory = pipeline_factory
         self.server: Optional[AsyncioServer] = None
-        self._run_task: Optional[Task] = None
-        self._bridge: Optional[Bridge] = None
+        self._run_task: Optional[Task[None]] = None
+        self._bridge: Optional[Bridge[RequestType, ResponseType]] = None
 
     def is_running(self) -> bool:
         """Returns `True` if the `Server` is running, `False` otherwise."""
@@ -38,12 +40,16 @@ class Server(Closable, Generic[RequestType, ResponseType]):
         except CancelledError:
             pass
 
-    async def _setup(self, address: Address, service: Service) -> AsyncioServer:
+    async def _setup(
+        self, address: Address, service: Service[RequestType, ResponseType]
+    ) -> AsyncioServer:
         pipeline = await self.pipeline_factory(service)
         self._bridge = Bridge(pipeline)
         return await asyncio.start_server(self._bridge, address.host, address.port)
 
-    async def serve(self, address: Address, service: Service) -> None:
+    async def serve(
+        self, address: Address, service: Service[RequestType, ResponseType]
+    ) -> None:
         """Start listening on the given `Address` and pass requests to `Service`."""
         self.server = await self._setup(address, service)
         # Don't assign the created task to '_'. That's a mistake
@@ -52,7 +58,9 @@ class Server(Closable, Generic[RequestType, ResponseType]):
         self._run_task = asyncio.create_task(self._run(self.server))
         await self.server.start_serving()
 
-    async def serve_forever(self, address: Address, service: Service) -> None:
+    async def serve_forever(
+        self, address: Address, service: Service[RequestType, ResponseType]
+    ) -> None:
         """Start listening on the given `Address` and pass requests to `Service`.
 
         This method differs from `serve` in that the `Coroutine` returned will

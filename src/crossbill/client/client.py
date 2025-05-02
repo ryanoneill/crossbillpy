@@ -18,11 +18,13 @@ class Client(Closable, Generic[RequestType, ResponseType]):
     """A `Client` sends `Request`s and receives `Response`s from `Server`s."""
 
     def __init__(
-        self, request_codec: RequestCodec, response_codec: ResponseCodec
+        self,
+        request_codec: RequestCodec[RequestType],
+        response_codec: ResponseCodec[ResponseType],
     ) -> None:
         """Initialize a `Client` based on the included `Codec`s."""
-        self.request_codec: RequestCodec = request_codec
-        self.response_codec: ResponseCodec = response_codec
+        self.request_codec: RequestCodec[RequestType] = request_codec
+        self.response_codec: ResponseCodec[ResponseType] = response_codec
         self.reader: Optional[StreamReader] = None
         self.writer: Optional[StreamWriter] = None
 

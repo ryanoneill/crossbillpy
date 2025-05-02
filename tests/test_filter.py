@@ -23,7 +23,7 @@ class UppercaseFilter(Filter[StringRequest, StringResponse]):
 
 
 async def test_filter_base_not_implemented() -> None:
-    filter = Filter()
+    filter: Filter[StringRequest, StringResponse] = Filter()
     request = StringRequest("test")
     service = StringEchoService()
     with pytest.raises(NotImplementedError):

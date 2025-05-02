@@ -3,5 +3,5 @@
 from ..core import WrappedResponse
 
 
-class StringResponse(WrappedResponse):
+class StringResponse(WrappedResponse[str]):
     """Descendant of `Response` that contains a `str`."""

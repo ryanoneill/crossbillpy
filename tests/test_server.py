@@ -1,6 +1,5 @@
 import asyncio
 
-from crossbill.server import Server
 from crossbill.string import StringEchoService, StringServer
 from crossbill.transport import Address
 
@@ -37,7 +36,7 @@ async def test_close_with_no_bridge() -> None:
     assert server.is_running()
 
     # Artificial. Should not happen during running.
-    server._bridge = None
+    server._bridge = None  # pyright: ignore
 
     await server.close()
     assert not server.is_running()
@@ -51,7 +50,7 @@ async def test_serve_forever() -> None:
     await task
 
 
-async def close_serve_forever(server: Server) -> None:
+async def close_serve_forever(server: StringServer) -> None:
     while not server.is_running():
         await asyncio.sleep(0.1)
     assert server.is_running()

@@ -3,5 +3,5 @@
 from ..core import WrappedResponse
 
 
-class BytesResponse(WrappedResponse):
+class BytesResponse(WrappedResponse[bytes]):
     """Descendant of `Response` that contains `bytes`."""
