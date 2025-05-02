@@ -18,7 +18,6 @@ async def main() -> None:
     message = "Hello from crossbill-demo!"
     encoded = message.encode()
     request = HttpRequest()
-    request.uri = "/"
     request.headers["Content-Type"] = "text/plain"
     request.headers["Content-Length"] = str(len(encoded))
     request.body = encoded

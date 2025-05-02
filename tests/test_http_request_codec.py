@@ -9,7 +9,6 @@ async def test_encode() -> None:
 
     request = HttpRequest()
     request.method = HttpMethod.POST
-    request.uri = "/"
     request.headers["Host"] = "developer.mozilla.org"
     request.headers["User-Agent"] = "curl/8.6.0"
     request.headers["Accept"] = "*/*"

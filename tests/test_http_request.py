@@ -20,3 +20,8 @@ def test_request() -> None:
     assert request.body == b"body content"
     assert request.method == HttpMethod.POST
     assert request.uri == "/abcd"
+
+
+def test_request_uri_constructor() -> None:
+    request = HttpRequest("/hello")
+    assert request.uri == "/hello"

@@ -32,7 +32,6 @@ async def test_strings_e2e() -> None:
     await server.serve(address, service)
 
     request = HttpRequest()
-    request.uri = "/"
     client = HttpClient()
     await client.connect(address)
     response = await client(request)
