@@ -7,7 +7,7 @@ from .response import BytesResponse
 from .response_codec import BytesResponseCodec
 
 
-class BytesPipelineFactory(PipelineFactory):
+class BytesPipelineFactory(PipelineFactory[BytesRequest, BytesResponse]):
     """A `BytesPipelineFactory` creates a `Pipeline` based on a `Service`."""
 
     async def __call__(

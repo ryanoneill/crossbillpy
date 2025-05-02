@@ -7,7 +7,7 @@ from .response import StringResponse
 from .response_codec import StringResponseCodec
 
 
-class StringPipelineFactory(PipelineFactory):
+class StringPipelineFactory(PipelineFactory[StringRequest, StringResponse]):
     """A `StringPipelineFactory` creates a `Pipeline` based on a `Service`."""
 
     async def __call__(
