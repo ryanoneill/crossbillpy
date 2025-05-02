@@ -90,12 +90,13 @@ $ uv sync
 ```
 ### Typing
 
-This project uses type hints extensively, and uses `mypy` specifically to see
+This project uses type hints extensively, and uses both `pyright` and `mypy` to see
 issues related to them.
 
 To see the existing issues, run the following from the command line.
 
 ```shell
+$ uv run pyright .
 $ uv run mypy .
 ```
 
