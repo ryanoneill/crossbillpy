@@ -1,4 +1,5 @@
 import json
+from typing import List
 
 from crossbill.http import HttpRequest, HttpRequestCodec, Method
 
@@ -34,7 +35,7 @@ async def test_encode() -> None:
 async def test_decode() -> None:
     codec = HttpRequestCodec()
 
-    lines = []
+    lines: List[str] = []
     lines.append("POST / HTTP/1.1")
     lines.append("Host: developer.mozilla.org")
     lines.append("User-Agent: curl/8.6.0")
@@ -64,7 +65,7 @@ async def test_decode() -> None:
 async def test_decode_no_body() -> None:
     codec = HttpRequestCodec()
 
-    lines = []
+    lines: List[str] = []
     lines.append("GET / HTTP/1.1")
     lines.append("Host: example.com")
     lines.append("User-Agent: curl/8.6.0")
