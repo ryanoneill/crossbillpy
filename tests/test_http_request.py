@@ -1,4 +1,4 @@
-from crossbill.http import HttpRequest, HttpMethod
+from crossbill.http import HttpMethod, HttpRequest
 
 
 def test_request() -> None:

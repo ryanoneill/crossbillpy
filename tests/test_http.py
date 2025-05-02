@@ -1,5 +1,3 @@
-import asyncio
-
 from crossbill.http import (
     HttpClient,
     HttpRequest,

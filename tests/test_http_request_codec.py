@@ -1,7 +1,7 @@
 import json
 from typing import List
 
-from crossbill.http import HttpRequest, HttpRequestCodec, HttpMethod
+from crossbill.http import HttpMethod, HttpRequest, HttpRequestCodec
 
 
 async def test_encode() -> None:
