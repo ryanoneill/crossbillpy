@@ -84,4 +84,4 @@ async def test_decode_no_body() -> None:
     assert request.headers["User-Agent"] == "curl/8.6.0"
     assert request.headers["Accept"] == "text/html,application/json"
 
-    assert request
+    assert request.body == b""
