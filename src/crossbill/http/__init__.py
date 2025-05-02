@@ -10,6 +10,7 @@ For example:
 * HttpRequestCodec
 * HttpResponse
 * HttpResponseCodec
+* HttpService
 * Method
 * Status
 """
@@ -19,6 +20,7 @@ from .request import HttpRequest
 from .request_codec import HttpRequestCodec
 from .response import HttpResponse
 from .response_codec import HttpResponseCodec
+from .service import HttpService
 from .status import Status
 
 __all__ = [
@@ -26,6 +28,7 @@ __all__ = [
     "HttpRequestCodec",
     "HttpResponse",
     "HttpResponseCodec",
+    "HttpService",
     "Method",
     "Status",
 ]
