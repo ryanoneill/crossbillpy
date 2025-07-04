@@ -1,4 +1,4 @@
-from strings import SpamService
+from tests.strings import SpamService
 
 from crossbill.core import Pipeline
 from crossbill.string import StringEchoService, StringRequestCodec, StringResponseCodec

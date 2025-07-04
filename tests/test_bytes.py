@@ -1,4 +1,4 @@
-from bytes import BytesEchoService
+from tests.bytes import BytesEchoService
 
 from crossbill.bytes import BytesClient, BytesRequest, BytesServer
 from crossbill.transport import Address

@@ -1,7 +1,7 @@
 import asyncio
 from asyncio import Server
 
-from strings import StringPipeline
+from tests.strings import StringPipeline
 
 from crossbill.string import StringRequest, StringResponse
 from crossbill.transport import Bridge

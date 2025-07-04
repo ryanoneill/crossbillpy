@@ -1,5 +1,5 @@
 import pytest
-from strings import StringResponse, StringResponseCodec
+from tests.strings import StringResponse, StringResponseCodec
 
 from crossbill.bytes import BytesResponse
 from crossbill.core import Response

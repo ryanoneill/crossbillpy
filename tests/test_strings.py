@@ -1,6 +1,6 @@
 import asyncio
 
-from strings import ReverseService
+from tests.strings import ReverseService
 
 from crossbill.string import StringClient, StringRequest, StringServer
 from crossbill.transport import Address

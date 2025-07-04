@@ -1,6 +1,6 @@
 import pytest
-from bytes import BytesEchoService
-from strings import ReverseService
+from tests.bytes import BytesEchoService
+from tests.strings import ReverseService
 
 from crossbill.bytes import BytesPipelineFactory
 from crossbill.core import PipelineFactory
