@@ -1,7 +1,6 @@
-from tests.strings import SpamService
-
 from crossbill.core import Pipeline
 from crossbill.string import StringEchoService, StringRequestCodec, StringResponseCodec
+from tests.strings import SpamService
 
 
 async def test_pipeline() -> None:

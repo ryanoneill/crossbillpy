@@ -1,10 +1,10 @@
 import pytest
-from tests.bytes import BytesEchoService
-from tests.strings import ReverseService
 
 from crossbill.bytes import BytesPipelineFactory
 from crossbill.core import PipelineFactory
 from crossbill.string import StringPipelineFactory, StringRequest, StringResponse
+from tests.bytes import BytesEchoService
+from tests.strings import ReverseService
 
 
 async def test_abstract_pipeline_factory() -> None:

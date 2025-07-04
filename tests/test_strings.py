@@ -1,9 +1,8 @@
 import asyncio
 
-from tests.strings import ReverseService
-
 from crossbill.string import StringClient, StringRequest, StringServer
 from crossbill.transport import Address
+from tests.strings import ReverseService
 
 
 async def test_strings_e2e() -> None:

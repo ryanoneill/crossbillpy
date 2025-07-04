@@ -1,10 +1,9 @@
 import asyncio
 from asyncio import Server
 
-from tests.strings import StringPipeline
-
 from crossbill.string import StringRequest, StringResponse
 from crossbill.transport import Bridge
+from tests.strings import StringPipeline
 
 
 async def run_server(server: Server) -> None:

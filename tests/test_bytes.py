@@ -1,7 +1,6 @@
-from tests.bytes import BytesEchoService
-
 from crossbill.bytes import BytesClient, BytesRequest, BytesServer
 from crossbill.transport import Address
+from tests.bytes import BytesEchoService
 
 
 async def test_bytes_e2e() -> None:
