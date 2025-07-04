@@ -1,6 +1,5 @@
 import math
 
-
 from crossbill.redis import DoubleCodec
 
 

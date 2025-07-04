@@ -10,6 +10,7 @@ For example:
 * BulkStringCodec
 * DoubleCodec
 * IntegerCodec
+* NullCodec
 * SimpleErrorCodec
 * SimpleStringCodec
 """
@@ -18,6 +19,7 @@ from .boolean_codec import BooleanCodec
 from .bulk_string_codec import BulkStringCodec
 from .double_codec import DoubleCodec
 from .integer_codec import IntegerCodec
+from .null_codec import NullCodec
 from .simple_error_codec import SimpleErrorCodec
 from .simple_string_codec import SimpleStringCodec
 
