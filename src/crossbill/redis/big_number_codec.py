@@ -5,6 +5,8 @@ from ..core import Codec
 
 
 class BigNumberCodec(Codec[int, bytes]):
+    """A `BigNumberCodec` converts between big number `bytes` and an `int`."""
+
     async def encode(self, data: int) -> bytes:
         """Converts from a large `int` to big number `bytes`."""
         result = "(" + str(data) + "\r\n"
