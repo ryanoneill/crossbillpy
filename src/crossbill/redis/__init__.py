@@ -15,6 +15,7 @@ For example:
 * NullCodec
 * SimpleErrorCodec
 * SimpleStringCodec
+* VerbatimStringCodec
 """
 
 from .big_number_codec import BigNumberCodec
@@ -26,6 +27,7 @@ from .integer_codec import IntegerCodec
 from .null_codec import NullCodec
 from .simple_error_codec import SimpleErrorCodec
 from .simple_string_codec import SimpleStringCodec
+from .verbatim_string_codec import VerbatimStringCodec
 
 __all__ = [
     "BigNumberCodec",
@@ -36,5 +38,6 @@ __all__ = [
     "IntegerCodec",
     "NullCodec",
     "SimpleErrorCodec",
-    "SimpleStringCodec"
+    "SimpleStringCodec",
+    "VerbatimStringCodec"
 ]
