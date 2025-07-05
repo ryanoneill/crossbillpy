@@ -31,6 +31,7 @@ __all__ = [
     "BulkStringCodec",
     "DoubleCodec",
     "IntegerCodec",
+    "NullCodec",
     "SimpleErrorCodec",
     "SimpleStringCodec"
 ]
